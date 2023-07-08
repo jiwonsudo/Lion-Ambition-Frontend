@@ -1,0 +1,477 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration-line: none;
+    font-family: 'Pretendard-Regular';
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul, li{
+    list-style: none;
+}
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#head-logo {
+    justify-content: center;
+    width: 12.5rem;
+    height: 9.03225rem;
+    flex-shrink: 0;
+    margin-left: 38.75rem;
+    margin-right: 15.56rem;
+    margin-top: 3.13rem;
+    margin-bottom: 2.05rem;
+}
+
+.me-bar {
+    display: inline-flex;
+    padding: 1.5625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 6.25rem;
+    margin-left: 6.88rem;
+    margin-top: 7.91rem;
+    margin-bottom: 2.05rem;
+}
+
+.logout {
+    background-color: white;
+    border: none;
+}
+
+/*  주문 메뉴 매출 디자인 부분  */
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    color: #A7A7A7;
+    text-decoration-line: none;
+    text-align: center;
+    font-size: 1.5625rem;
+    font-family: Pretendard;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.nav-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 22.5rem;
+}
+
+.nav-item {
+    padding: 0 0.6rem;
+}
+
+.nav-menu {
+    color: #101010;
+    text-align: center;
+    font-size: 1.5625rem;
+    font-family: Pretendard;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.triangle {
+    width: 4.375rem;
+    height: 0.4375rem;
+    background: #FEAC18;
+}
+
+#status-nav > #nav-btn{
+    display: flex;
+    align-items: center;
+    gap: 6.25rem;
+}
+
+#status-nav > #nav-btn > #nav-item{
+    display: inline-flex;
+    align-items: center;
+    gap: 37.5rem;
+}
+
+#status-nav > #nav-btn > #nav-item > #nav-link{
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#main-board{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75rem;
+    height: 45.4375rem;
+    background-color: #FEC969;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+}
+
+#status-nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1.87rem;
+    margin: 0 auto;
+}
+
+#add-btn{
+    float: right;
+    width: 6.60713rem;
+    height: 2.5rem;
+    border-radius: 1.875rem;
+    border-style: none;
+    background: #FFF;
+    color: #101010;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#list-menu{
+    width: 75rem;
+    height: 38.5625rem;
+    overflow: auto;
+}
+
+#list-menu::-webkit-scrollbar{
+    width: 0.625rem;
+}
+
+#list-menu::-webkit-scrollbar-thumb{
+    background-color: rgba(254, 172, 24, 1);
+    border-radius: 0.625rem;    
+}
+
+#list-menu::-webkit-scrollbar-track{
+    background-color: rgba(0,0,0,0);
+}
+
+#card-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#card-item {
+    width: 15.625rem;
+    height: 18.75rem;
+    border-radius: 0.625rem;
+    background: #FFF;
+    margin-left: 1.75rem;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#card-item > img{
+    width: 12.39056rem;
+    height: 12.37625rem;
+    margin: 1.58rem;
+}
+
+/* modal */
+#modal-wrap {
+    position : fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: none;
+    justify-content: center;
+  }
+  
+#modal-body {
+    position : absolute;
+    bottom : 0;
+    width: 74.9375rem;
+    height: 45.4375rem;
+    background-color: rgba(16, 16, 16, 0.90);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#close-btn {
+    float:right;
+    width: 1.91125rem;
+    height: 1.97375rem;
+    color: #FFF;
+    cursor: pointer;
+}
+
+#modalTitle{
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: #FFF;
+    margin-bottom: 1.87rem;
+}
+
+hr {
+    border: none;
+    border-top: 2px dotted #FFF;
+    width: 50rem;
+    height: 0.0625rem;
+    }
+
+#item-detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form{
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem;
+}
+
+#form-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#img-view{
+    width: 15.625rem;
+    height: 15.625rem;
+    background: #FFF;
+}
+
+#img-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#img-btn > input{
+    width: 5.94644rem;
+    height: 2.25rem;
+    border-radius: 1.875rem;
+    border-style: none;
+    background: #FFF;
+    color: #101010;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+#form-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+#input-title{
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+#status-title{
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#item-group {
+    display: flex;
+    flex-direction: column;
+}
+
+#item-name{
+    display: flex;
+    flex-direction: column;
+}
+
+#item-price{
+    display: flex;
+    flex-direction: column;
+}
+
+#dropdown{
+    position : relative;
+    display : inline-block;
+}
+
+    #dropdown-btn{
+    width: 25rem;
+    height: 2.5rem;
+    border-radius: 0.1875rem;
+    border-style: none;
+    background: #FFF;  
+    text-align: left;
+    cursor : pointer;
+    color: rgba(16, 16, 16, 0.50);
+    font-family: Pretendard;
+    padding-left: 0.63rem;
+    }
+
+#group-content{
+    display : none;
+    position : absolute;
+    z-index : 1; /*다른 요소들보다 앞에 배치*/
+    font-weight: 400;
+    background-color: #101010;
+    width: 100%;
+  }
+
+#group-content p{
+    display : block;
+    text-decoration : none;
+    color : #FFF;
+    font-size: 12px;
+    padding : 12px 20px;
+  }
+#group-content p:hover{
+    color: #101010;
+    background-color : #FEC969;
+}
+
+#group-content p:active {
+    background-color: #FEAC18;
+}
+  
+#dropdown:hover #group-content {
+    display: block;
+}
+
+#text-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+#text-group input{
+    width: 25rem;
+    height: 2.5rem;
+    border-radius: 0.1875rem;
+    border-style: none;
+    background: #FFF;  
+    text-align: left;
+    cursor : pointer;
+    color: rgba(16, 16, 16, 0.50);
+    font-family: Pretendard;
+    padding-left: 0.63rem;
+}
+
+label {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+  }
+
+  label > span{
+    color: #FFF;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  [type="checkbox"] {
+    appearance: none;
+    position: relative;
+    border: max(2px, 0.1rem) solid gray;
+    border-radius: 6.25rem;
+    width: 3.25rem;
+    height: 2rem;
+  }
+  
+  [type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    transform: scale(0.8);
+    background-color: gray;
+    transition: left 300ms linear;
+  }
+  
+  [type="checkbox"]:checked {
+    background-color: rgba(254, 172, 24, 1);
+    border-color: rgba(254, 172, 24, 1);
+  }
+  
+  [type="checkbox"]:checked::before {
+    background-color: white;
+    left: 1.35rem;
+  }
+
+#item-status{
+    display: flex;
+    align-items: center;
+    gap: 14.125rem;
+}
+
+hr{
+    margin-bottom: 1.85rem;
+}
+
+#save-btn{
+    width: 7.92856rem;
+    height: 3rem; 
+    border-radius: 1.875rem;
+    border-style: none;
+    background: #FEAC18;
+    color: #101010;
+    text-align: center;
+    font-size: 1.5rem;  
+    font-weight: 600;
+}
