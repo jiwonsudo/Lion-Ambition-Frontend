@@ -76,12 +76,91 @@ a{
     */
 }
 
-#orderedmenu-board{
+
+
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+
+.ordermenu-board{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 75rem;
+    justify-content: space-around;
+    width: 30rem;
+    height: 45.4375rem;
+    background-color: #FEC969;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    font-size: 23px;
+}
+
+.orderstatus {
+    background-color: blue;
+}
+
+.ordermenu-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    background-color: white;
+    justify-content: space-around;
+    width: 400px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    height: 70px;
+    margin: 5px;
+    font-size: 17px;
+    font-weight: lighter
+    text-align: center;
+}
+
+.cookingfinish-board{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 30rem;
+    height: 45.4375rem;
+    background-color: lightgray;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.cookingfinish-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    background-color: white;
+    justify-content: space-around;
+    width: 400px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    height: 70px;
+    margin: 5px;
+    font-size: 17px;
+    text-align: center;
+}
+
+/*
+.item {
+    border : 1px;
+    padding: 10px
+    display :flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 23rem;
     height: 45.4375rem;
     background-color: #FEC969;
     border-top-left-radius: 30px;
@@ -89,23 +168,16 @@ a{
     padding-left: 3.5rem;
     padding-right: 3.5rem;
 }
-
-#cookingfinish-board{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 75rem;
-    height: 45.4375rem;
-    background-color: grey;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    padding-left: 3.5rem;
-    padding-right: 3.5rem;
+*/
+/*
+.ordermenu-board {
+    background-color: #FEC969;
 }
 
-
-
+.cookingfinish-board {
+    background-color: grey;
+}
+*/
 /* section */
 .sec{
     text-align: center;
@@ -134,8 +206,17 @@ a{
 
 
 
+.calendar-nav {
+    text-align: justify;
+    text-align-last: right;
+    justify-content: flex-end;
+}
 
 
+.status-nav{
+    font-size: 1.5625rem;
+    font-weight: bold;
+}
 
 
 .nav-btn {
@@ -161,7 +242,13 @@ a{
 
 .select-bar {
     width: 4.375rem;
-    height: 0.4375rem;
+    height: 0.3375rem;
     background: #FEC969;
     
+}
+
+
+.board-container {
+    display: flex;
+    justify-content: space-between;
 }
