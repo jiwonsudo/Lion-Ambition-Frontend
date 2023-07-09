@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
@@ -118,10 +120,20 @@ a{
 
 #status-nav > #nav-btn > #nav-item > #nav-link{
     color: #FFF;
-    font-size: 20px;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+#status-nav > #nav-btn > #nav-item > #nav-link:hover{
+    color: #101010;
+    font-weight: 500;
+}
+
+#status-nav > #nav-btn > #nav-item > #nav-link:active{
+    color: #101010;
+    font-weight: 500;
 }
 
 #main-board{
@@ -132,6 +144,7 @@ a{
     width: 75rem;
     height: 45.4375rem;
     background-color: #FEC969;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     padding-left: 3.5rem;
@@ -155,8 +168,7 @@ a{
     background: #FFF;
     color: #101010;
     text-align: center;
-    font-family: Pretendard;
-    font-size: 18px;
+    font-size: 1.25rem;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -214,11 +226,12 @@ a{
     height: 100%;
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     display: none;
-    justify-content: center;
   }
   
 #modal-body {
     position : absolute;
+    top: 60%;
+    left: 50%;
     bottom : 0;
     width: 74.9375rem;
     height: 45.4375rem;
@@ -230,6 +243,7 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 #close-btn {
@@ -240,7 +254,7 @@ a{
     cursor: pointer;
 }
 
-#modalTitle{
+#modal-title{
     text-align: center;
     font-family: Pretendard;
     font-size: 2rem;
@@ -308,19 +322,19 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 15px;
+    gap: 1.875rem;
 }
 
 #input-title{
     color: #FFF;
-    font-size: 20px;
+    font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 1rem;
 }
 
 #status-title{
     color: #FFF;
-    font-size: 20px;
+    font-size: 1.5rem;
     font-weight: 500;
 }
 
@@ -344,7 +358,7 @@ form{
     display : inline-block;
 }
 
-    #dropdown-btn{
+#dropdown-btn{
     width: 25rem;
     height: 2.5rem;
     border-radius: 0.1875rem;
@@ -355,7 +369,7 @@ form{
     color: rgba(16, 16, 16, 0.50);
     font-family: Pretendard;
     padding-left: 0.63rem;
-    }
+}
 
 #group-content{
     display : none;
@@ -366,19 +380,20 @@ form{
     width: 100%;
   }
 
-#group-content p{
+#select-group{
     display : block;
     text-decoration : none;
     color : #FFF;
-    font-size: 12px;
+    font-size: 1.0rem;
     padding : 12px 20px;
   }
-#group-content p:hover{
+
+#select-group:hover{
     color: #101010;
     background-color : #FEC969;
 }
 
-#group-content p:active {
+#select-group:active {
     background-color: #FEAC18;
 }
   
@@ -417,7 +432,7 @@ label {
   label > span{
     color: #FFF;
     font-family: Pretendard;
-    font-size: 18px;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -474,4 +489,73 @@ hr{
     text-align: center;
     font-size: 1.5rem;  
     font-weight: 600;
+}
+
+.dropdown-label{
+  font-size : 12px;
+  margin : 10px;
+  font-weight : bold;
+  color : rgb(50, 50, 50);
+}
+
+.dropdown{
+  position : relative;
+  display : inline-block;
+}
+
+.dropbtn_icon{
+  font-family : 'Material Icons';
+}
+
+.dropbtn{
+    display : block;
+    width: 25rem;
+    height: 2.5rem;
+    border-radius: 0.1875rem;
+    border-style: none;
+    background: #FFF;  
+    text-align: left;
+    cursor : pointer;
+    color: rgba(16, 16, 16, 0.50);
+    padding-left: 0.63rem;
+    position : relative;
+}
+
+.dropdown-content{
+    display : none;
+    z-index : 1; /*다른 요소들보다 앞에 배치*/
+    font-weight: 400;
+    background-color: #101010;
+    width: 100%;
+}
+
+.dropdown-content::-webkit-scrollbar{
+  width : 5px;
+  height : 10px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb{
+  border-radius : 2px;
+  background-color :rgb(194, 194, 194)
+}
+
+.dropdown-content div{
+  display : block;
+  text-decoration : none;
+  color : #FFF;
+  font-size: 1.0rem;
+  padding : 12px 20px;
+}
+
+.dropdown-content div:hover{
+    color: #101010;
+    background-color : #FEC969;
+}
+
+.dropdown-content div:active{
+    background-color: #FEAC18;
+}
+
+.dropdown-content.show{
+  display : block;
 }

@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사자의 야심작</title>
-    <script src="./menu.js" defer></script>
-    <link rel="stylesheet" href="./menu.css">
+    <script src="./script/menu.js" defer></script>
+    <link rel="stylesheet" href="./styles/menu.css">
 </head>
 <body>
     <header>
         <h1 id="head-logo">
-            <a href="#"><img src="/Image/LionAmbitious.png"/></a>
+            <a href="#"><img src="./assets/LionAmbitious.png"/></a>
         </h1>
         <div class="me-bar">
             <p class="user-name">admin 님</p>
@@ -28,6 +28,7 @@
         </div>
         <div class="triangle"></div>
     </nav>
+
     <div id="main-board">
         <div id="status-nav">
             <ul id="nav-btn">
@@ -48,48 +49,49 @@
         <div id="list-menu">
             <ul id="card-list">
                 <li id="card-item">
-                        <img src = "image/야심작_버거.png">
+                        <img src = "./assets/야심작_버거.png">
                         <span id="item-name">야심작 버거</span>
                 </li>
                 <li id="card-item">
-                        <img src = "image/화끈한_불고기_버거.png">
+                        <img src = "./assets/화끈한_불고기_버거.png">
                         <span id="item-name">화끈한 불고기 버거</span>
                 </li>
                 <li id="card-item">
-                    <img src = "image/치즈_폭탄_버거.png">
+                    <img src = "./assets/치즈_폭탄_버거.png">
                     <span id="item-name">치즈 폭탄 버거</span>
                 </li>
                 <li id="card-item">
-                    <img src = "image/크런치_쉬림프_버거.png">
+                    <img src = "./assets/크런치_쉬림프_버거.png">
                     <span id="item-name">크런치 쉬림프 버거</span>
                 </li>
                 <li id="card-item">
-                    <img src = "image/멕시칸_스타일_버거.png">
+                    <img src = "./assets/멕시칸_스타일_버거.png">
                     <span id="item-name">멕시칸 스타일 버거</span>
                 </li>
                 <li id="card-item">
-                    <img src = "image/골든_프렌치_프라이.png">
+                    <img src = "./assets/골든_프렌치_프라이.png">
                     <span id="item-name">골든 프렌치 프라이</span>
                 </li>
                 <li id="card-item">
-                    <img src = "image/정글_어니언_링.png">
+                    <img src = "./assets/정글_어니언_링.png">
                     <span id="item-name">정글 어니언 링</span>
                 </li>
                 <li id="card-item">
-                    <img src = "image/핫_윙.png">
+                    <img src = "./assets/핫_윙.png">
                     <span id="item-name">핫 윙</span>
                 </li>
                 <li id="card-item">
-                    <img src = "image/핫_윙.png">
+                    <img src = "./assets/핫_윙.png">
                     <span id="item-name">핫 윙</span>
                 </li>
                 <li id="card-item">
-                    <img src = "image/핫_윙.png">
+                    <img src = "./assets/핫_윙.png">
                     <span id="item-name">핫 윙</span>
                 </li>
             </ul>
         </div>
     </div>
+
     <div id="modal-wrap">
         <div id="modal-body">
               <div id="modal-content">
@@ -98,15 +100,18 @@
                   </svg>
                 </span>
                 <div id="item-detail">
-                    <p id="modalTitle">상품 상세</p>
+                    <p id="modal-title">상품 상세</p>
                     <hr />
                     <form>
                         <div id="form-img">
                             <div id="img-view"></div>
                             <div id="img-btn">
-                                <input type="button" 
-                                id = "img-add" 
-                                value = "등록">
+                                <input type="file" 
+                                id="img-add" 
+                                value="등록" 
+                                accept="image/*" 
+                                onchange="setThumbnail(event);"
+                               >
                                 <input type="button" 
                                 id = "img-del" 
                                 value = "삭제">
@@ -116,16 +121,18 @@
                             <div id="text-group">
                                 <div id="item-group">
                                     <span id="input-title">상품그룹</span>
-                                    <div id="dropdown">
-                                        <button id="dropdown-btn">
-                                            상품그룹 선택
+                                      <div class="dropdown">
+                                        <button class="dropbtn">
+                                          <span class="dropbtn_content">상품그룹 선택</span>
+                                          <span class="dropbtn_click" style="font-family: Material Icons; font-size : 20px; color : #3b3b3b; float:right;"
+                                            onclick="dropdown()">arrow_drop_down</span>
                                         </button>
-                                    <div id="group-content">
-                                        <p>버거</p>
-                                        <p>사이드</p>
-                                        <p>음료</p>
-                                    </div>
-                                </div>
+                                        <div class="dropdown-content">
+                                          <div class="menu-list" onclick="showMenu(this.innerText)">버거</div>
+                                          <div class="menu-list" onclick="showMenu(this.innerText)">사이드</div>
+                                          <div class="menu-list" onclick="showMenu(this.innerText)">음료</div>
+                                        </div>
+                                      </div>
                                 </div>
                                 <br>
                                 <div id="item-name">
