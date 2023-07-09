@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사자의 야심작</title>
     <script src="./order.js" defer></script>
-    <link rel="stylesheet" href="./order.css">
+    <link rel="stylesheet" href="./ordercopy.css">
+
+
 </head>
 <body>
     <header>
@@ -26,27 +28,266 @@
                 <li class="nav-item"><a class="nav-manage" href="/SalesManagementPage/manage.html">매출</a></li>   
             </ul>
         </div>
+
         <div class="select-bar"></div>
+        
+
+
         <div id="calendar-nav">
             <ul id="nav-item">
                 <li class="nav-item">
-                    <a class="nav-ink" href="#"> 년</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-ink" href="#"> 월</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-ink" href="#"> 일</a>
+                    <a class="nav-ink" href="#"> 
+                        <input type="button"
+                        id = "add-btn"
+                        value = "           ">년                       <input type="button"
+                        id = "add-btn"
+                        value = "           ">월                        <input type="button"
+                        id = "add-btn"
+                        value = "           ">일</a>
+                    <!-- <input type="button" 
+                    id = "add-btn"
+                    value = "           ">
+                    -->
+
+
+
+                    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+                    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+                    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+                    <input type="text" name="mb_11" id="mb_11" class="ts" autocomplete="off"/>
+                    <script>
+                        $(function(){
+                            $('#mb_11').datepicker({
+                                lang:'ko',
+                                dateFormat: 'yy-mm-dd',
+                                monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'], //달력의 월 부분 텍스트
+                                monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'], //달력의 월 부분 Tooltip
+                                dayNamesMin: ['일','월','화','수','목','금','토'], //달력의 요일 텍스트
+                                dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 Tooltip
+                            });
+                        })
+                    </script>
                 </li>
             </ul>
-            <input type="button"
-            id = "add-btn"
-            value = "이전날짜 조회">
         </div>
-
-
     </nav>
-    
+
+<!--  
+    <div id="container">
+        <div class="item">ordermenu-board</div>
+        <div class="item">cookingfinish-board</div>
+    </div>
+-->
+
+    <div id="container">
+        <div class="ordermenu-board"> 접수 완료된 주문
+            <div class="ordermenu-list">
+                <li id="ordernumber">15
+                    <input type="button" 
+                    id = "add-btn"
+                    value = " 15 ">  
+                </li>
+                <ul id="order-list">
+                    <li id="order-item">
+                        주문내역: 야심작 버거 외 3개
+                    </li>
+                    <li id="order-item">
+                        금액: 32,000원
+                    </li>
+                </ul>
+                <li id="orderstatus">
+                    <input type="button" 
+                    id = "add-btn"
+                    value = " 조리완료 ">  
+                </li>
+
+            </div>
+            <div class="ordermenu-list">
+                <li id="ordernumber">14
+                    <input type="button" 
+                    id = "add-btn"
+                    value = " 14 ">  
+                </li>
+                <ul id="order-list">
+                    <li id="order-item">
+                        주문내역: 야심작 버거 외 3개
+                    </li>
+                    <li id="order-item">
+                        금액: 32,000원
+                    </li>
+                </ul>
+                <li id="orderstatus">
+                    <input type="button" 
+                    id = "add-btn"
+                    value = " 조리완료 ">  
+                </li>
+
+
+            </div>
+            <div class="ordermenu-list">
+                <li id="ordernumber">13
+                    <input type="button" 
+                    id = "add-btn"
+                    value = " 13 ">  
+                </li>
+                <ul id="order-list">
+                    <li id="order-item">
+                        주문내역: 야심작 버거 외 3개
+                    </li>
+                    <li id="order-item">
+                        금액: 32,000원
+                    </li>
+                </ul>
+                <li id="orderstatus">
+                    <input type="button" 
+                    id = "add-btn"
+                    value = " 조리완료 ">  
+                </li>
+
+
+            </div>
+            <div class="ordermenu-list">
+                <li id="ordernumber">12
+                    <input type="button" 
+                    id = "add-btn"
+                    value = " 12 ">  
+                </li>
+                <ul id="order-list">
+                    <li id="order-item">
+                        주문내역: 야심작 버거 외 3개
+                    </li>
+                    <li id="order-item">
+                        금액: 32,000원
+                    </li>
+                </ul>
+                <li id="orderstatus">
+                    <input type="button" 
+                    id = "add-btn"
+                    value = " 조리완료 ">  
+                </li>
+
+            </div>
+            <div class="ordermenu-list">
+                <li id="ordernumber">11
+                    <input type="button" 
+                    id = "add-btn"
+                    value = " 11 ">  
+                </li>
+                <ul id="order-list">
+                    <li id="order-item">
+                        주문내역: 야심작 버거 외 3개
+                    </li>
+                    <li id="order-item">
+                        금액: 32,000원
+                    </li>
+                </ul>
+                <li id="orderstatus">
+                    <input type="button" 
+                    id = "add-btn"
+                    value = " 조리완료 ">  
+                </li>
+
+
+            </div>
+
+
+        </div>
+        <div class="cookingfinish-board"> 조리 완료된 주문
+            <div class="cookingfinish-list">
+                <li id="ordernumber">13
+                    <input type="button" 
+                    id = "add-btn"
+                    value = " 13 ">  
+                </li>
+                <ul id="order-list">
+                    <li id="order-item">
+                        주문내역: 야심작 버거 외 3개
+                    </li>
+                    <li id="order-item">
+                        금액: 32,000원
+                    </li>
+                </ul>
+
+ </div>
+            <div class="cookingfinish-list">
+                <li id="ordernumber">12
+                    <input type="button" 
+                    id = "add-btn"
+                    value = " 12 ">  
+                </li>
+                <ul id="order-list">
+                    <li id="order-item">
+                        주문내역: 야심작 버거 외 3개
+                    </li>
+                    <li id="order-item">
+                        금액: 32,000원
+                    </li>
+                </ul>
+
+
+            </div>
+            <div class="cookingfinish-list">
+                <li id="ordernumber">11
+                    <input type="button" 
+                    id = "add-btn"
+                    value = " 11 ">  
+                </li>
+                <ul id="order-list">
+                    <li id="order-item">
+                        주문내역: 야심작 버거 외 3개
+                    </li>
+                    <li id="order-item">
+                        금액: 32,000원
+                    </li>
+                </ul>
+
+
+            </div>
+            <div class="cookingfinish-list">
+                <li id="ordernumber">10
+                    <input type="button" 
+                    id = "add-btn"
+                    value = " 10 ">  
+                </li>
+                <ul id="order-list">
+                    <li id="order-item">
+                        주문내역: 야심작 버거 외 3개
+                    </li>
+                    <li id="order-item">
+                        금액: 32,000원
+                    </li>
+                </ul>
+
+
+            </div>
+            <div class="cookingfinish-list">
+                <li id="ordernumber">9
+                    <input type="button" 
+                    id = "add-btn"
+                    value = " 9 ">  
+                </li>
+                <ul id="order-list">
+                    <li id="order-item">
+                        주문내역: 야심작 버거 외 3개
+                    </li>
+                    <li id="order-item">
+                        금액: 32,000원
+                    </li>
+                </ul>
+
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+
+    <!--  
+    <div id="board-container">
     <div id="orderedmenu-board">
         <div id="listof-order">
             <ul id="order-list">
@@ -65,6 +306,31 @@
                     <span id="order-content"> 주문번호 주문내역 금액</span>
                 </li>
             </ul>
+        </div>
+    </div>
+-->
+
+
+    <input type="button" 
+    id = "add-btn" 
+    value = "모달창띄우기">
+
+    <div class="modal">
+        <div class="modal-body">
+            <span id="close-btn"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M26.3302 31.7199C27.1154 32.5264 28.4112 32.5264 29.1963 31.7199L30.4591 30.4228C31.215 29.6463 31.215 28.409 30.4591 27.6326L21.0134 17.9301C20.2575 17.1536 20.2575 15.9163 21.0134 15.1398L30.4591 5.43735C31.215 4.66087 31.215 3.42359 30.4591 2.64711L29.1963 1.34999C28.4112 0.543492 27.1154 0.543492 26.3302 1.34999L15.7362 12.232L5.14212 1.35C4.35696 0.543496 3.06118 0.543497 2.27602 1.35L1.01324 2.64711C0.257306 3.42359 0.257305 4.66087 1.01324 5.43736L10.4589 15.1398C11.2149 15.9163 11.2149 17.1536 10.4589 17.9301L1.01324 27.6326C0.257306 28.409 0.257306 29.6463 1.01324 30.4228L2.27602 31.7199C3.06118 32.5264 4.35696 32.5264 5.14212 31.7199L15.7362 20.8379L26.3302 31.7199Z" fill="white"/>
+            </svg>
+            </span>
+        </div>
+    </div>
+
+
+    <div class="button">
+        <div class="modal-body">
+            <span id="close-btn"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M26.3302 31.7199C27.1154 32.5264 28.4112 32.5264 29.1963 31.7199L30.4591 30.4228C31.215 29.6463 31.215 28.409 30.4591 27.6326L21.0134 17.9301C20.2575 17.1536 20.2575 15.9163 21.0134 15.1398L30.4591 5.43735C31.215 4.66087 31.215 3.42359 30.4591 2.64711L29.1963 1.34999C28.4112 0.543492 27.1154 0.543492 26.3302 1.34999L15.7362 12.232L5.14212 1.35C4.35696 0.543496 3.06118 0.543497 2.27602 1.35L1.01324 2.64711C0.257306 3.42359 0.257305 4.66087 1.01324 5.43736L10.4589 15.1398C11.2149 15.9163 11.2149 17.1536 10.4589 17.9301L1.01324 27.6326C0.257306 28.409 0.257306 29.6463 1.01324 30.4228L2.27602 31.7199C3.06118 32.5264 4.35696 32.5264 5.14212 31.7199L15.7362 20.8379L26.3302 31.7199Z" fill="white"/>
+            </svg>
+            </span>
         </div>
     </div>
 
