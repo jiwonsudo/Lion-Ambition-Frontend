@@ -250,12 +250,24 @@ a{
     top: 2px;     
 }
 
+.order >button:hover{
+    opacity: 0.8;
+}
+
 .menu > button:active{
     position: relative;
     top: 2px;     
 }
 
+.menu >button:hover{
+    opacity: 0.8;
+}
+
 .money > button:active{
     position: relative;
     top: 2px;    
+}
+
+.money >button:hover{
+    opacity: 0.8;
 }
