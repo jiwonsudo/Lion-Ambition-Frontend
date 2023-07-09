@@ -211,9 +211,17 @@ body {
     top: 2px;    
 }
 
+.signup_text >button:hover{
+    opacity: 0.8;
+}
+
 .signup_email > button:active{
     position: relative;
     top: 2px;
+}
+
+.signup_email > button:hover{
+    opacity: 0.8;
 }
 
 .signup_email_num > button:active{
@@ -221,7 +229,15 @@ body {
     top: 2px;
 }
 
+.signup_email_num > button:hover{
+    opacity: 0.8;
+}
+
 .signup_go > button:active{
     position: relative;
     top: 2px;   
+}
+
+.signup_go > button:hover{
+    opacity: 0.8;
 }

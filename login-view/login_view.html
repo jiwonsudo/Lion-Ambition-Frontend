@@ -7,7 +7,7 @@
     <title>로그인</title>
     <link rel="stylesheet" href="styles/login.css">
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Pretendard&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Prentendard">
     <script src="scripts/login.js"></script> 
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
@@ -16,16 +16,17 @@
         window.Kakao.init("cb9f015babbf4fae5b5122ed653fd52f");
         function KakaoLogin() {
             window.Kakao.Auth.login({
-                scope:'profile, account_email',
+                scope:'profile_nickname, profile_image, account_email, gender',
                 success: function(authObj){
                     console.log(authObj);
                     window.Kakao.API.request({
-                        url:'manage_view.html',
+                        url:'/v2/user/me',
                         success: res => {
                             const kakao_account = res.kakao_account;
                             console.log(kakao_account);
                         }
                     });
+                    window.location.href='manage_view.html'
                 }
             });
         }
@@ -50,7 +51,7 @@
             <input id="form_submit" type="submit" style="display:none">
         </div>
         <div class="login_ka">
-            <button type="button" style="cursor:pointer;" onclick="javascript:KakaoLogin();"><img src="assets/kakao 1.png"><h5>카카오톡 간편 로그인</h5></button>
+            <button type="button" style="cursor:pointer;" onclick="javascript:KakaoLogin();" ><img src="assets/kakao 1.png"><h5>카카오톡 간편 로그인</h5></button>                
         </div>
         <div class="sign_in">
             <h4>아직 회원이 아닌가요?</h4>

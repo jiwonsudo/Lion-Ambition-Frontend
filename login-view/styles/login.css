@@ -183,12 +183,24 @@ body{
     top:2px;
 }
 
+.login_bt_wrap > button:hover{
+    opacity: 0.8;
+}
+
 .login_ka > button:active{
     position: relative;
     top: 2px;
 }
 
+.login_ka button:hover {
+    opacity: 0.8;
+}
+  
 .sign_in > button:active{
     position: relative;
     top: 2px;
+}
+
+.sign_in > button:hover{
+    opacity: 0.8;
 }
