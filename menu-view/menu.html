@@ -49,43 +49,43 @@
         <div id="list-menu">
             <ul id="card-list">
                 <li id="card-item">
-                        <img src = "./assets/야심작_버거.png">
+                        <img src = "./assets/야심작_버거.png">
                         <span id="item-name">야심작 버거</span>
                 </li>
                 <li id="card-item">
-                        <img src = "./assets/화끈한_불고기_버거.png">
+                        <img src = "./assets/화끈한_불고기_버거.png">
                         <span id="item-name">화끈한 불고기 버거</span>
                 </li>
                 <li id="card-item">
-                    <img src = "./assets/치즈_폭탄_버거.png">
+                    <img src = "./assets/치즈_폭탄_버거.png">
                     <span id="item-name">치즈 폭탄 버거</span>
                 </li>
                 <li id="card-item">
-                    <img src = "./assets/크런치_쉬림프_버거.png">
+                    <img src = "./assets/크런치_쉬림프_버거.png">
                     <span id="item-name">크런치 쉬림프 버거</span>
                 </li>
                 <li id="card-item">
-                    <img src = "./assets/멕시칸_스타일_버거.png">
+                    <img src = "./assets/멕시칸_스타일_버거.png">
                     <span id="item-name">멕시칸 스타일 버거</span>
                 </li>
                 <li id="card-item">
-                    <img src = "./assets/골든_프렌치_프라이.png">
+                    <img src = "./assets/골든_프렌치_프라이.png">
                     <span id="item-name">골든 프렌치 프라이</span>
                 </li>
                 <li id="card-item">
-                    <img src = "./assets/정글_어니언_링.png">
+                    <img src = "./assets/정글_어니언_링.png">
                     <span id="item-name">정글 어니언 링</span>
                 </li>
                 <li id="card-item">
-                    <img src = "./assets/핫_윙.png">
+                    <img src = "./assets/핫_윙.png">
                     <span id="item-name">핫 윙</span>
                 </li>
                 <li id="card-item">
-                    <img src = "./assets/핫_윙.png">
+                    <img src = "./assets/핫_윙.png">
                     <span id="item-name">핫 윙</span>
                 </li>
                 <li id="card-item">
-                    <img src = "./assets/핫_윙.png">
+                    <img src = "./assets/핫_윙.png">
                     <span id="item-name">핫 윙</span>
                 </li>
             </ul>
@@ -102,19 +102,29 @@
                 <div id="item-detail">
                     <p id="modal-title">상품 상세</p>
                     <hr />
-                    <form>
+                    <form method="post" enctype="multipart/form-data">
                         <div id="form-img">
                             <div id="img-view"></div>
-                            <div id="img-btn">
-                                <input type="file" 
-                                id="img-add" 
-                                value="등록" 
-                                accept="image/*" 
-                                onchange="setThumbnail(event);"
-                               >
-                                <input type="button" 
-                                id = "img-del" 
-                                value = "삭제">
+                            <div id="btn-wrap">
+                                <div id="img-add-btn">
+                                    <label id="btn-label">
+                                        등록
+                                    </label>
+                                    <input type="file" 
+                                    id="img-add" 
+                                    accept="image/*" 
+                                    onchange="loadFile(this)";
+                                   >
+                                </div>
+                                <div id="img-del-btn">
+                                    <button type="button" 
+                                    id="img-del"
+                                    onclick="delFile()">
+                                    <span id="btn-label">
+                                        삭제
+                                    </span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div id="form-text">
@@ -135,7 +145,7 @@
                                       </div>
                                 </div>
                                 <br>
-                                <div id="item-name">
+                                <div id="item-title">
                                     <span id="input-title">상품명</span>
                                     <input type="text" placeholder="상품명 입력">
                                 </div>
@@ -149,7 +159,7 @@
                             <div id="item-status">
                                 <span id="status-title">상태</span>
                                 <div id="toggle">
-                                    <label>
+                                    <label id="toggle-wrap">
                                         <span>판매중</span>
                                         <input role="switch" type="checkbox">
                                     </label>
@@ -159,7 +169,7 @@
                         </div>
                     </form>
                     <hr />
-                    <input type="button"
+                    <input type="submit"
                     id="save-btn"
                     value="저장"> 
                 </div>

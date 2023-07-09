@@ -165,13 +165,19 @@ a{
     height: 2.5rem;
     border-radius: 1.875rem;
     border-style: none;
-    background: #FFF;
+    background-color: #FFF;
     color: #101010;
     text-align: center;
     font-size: 1.25rem;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     line-height: normal;
+    cursor: pointer;
+}
+
+#add-btn:hover{
+    background-color: #101010;
+    color: #FFF;
 }
 
 #list-menu{
@@ -202,7 +208,7 @@ a{
     width: 15.625rem;
     height: 18.75rem;
     border-radius: 0.625rem;
-    background: #FFF;
+    background-color: #FFF;
     margin-left: 1.75rem;
     margin-bottom: 2.5rem;
     display: flex;
@@ -210,11 +216,27 @@ a{
     align-items: center;
 }
 
+#card-item:hover{
+    background-color: #FEAC18;
+}
+
+#card-item > span {
+    color: #101010;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
 #card-item > img{
     width: 12.39056rem;
     height: 12.37625rem;
     margin: 1.58rem;
 }
+
+
 
 /* modal */
 #modal-wrap {
@@ -230,7 +252,7 @@ a{
   
 #modal-body {
     position : absolute;
-    top: 60%;
+    top: 64%;
     left: 50%;
     bottom : 0;
     width: 74.9375rem;
@@ -298,23 +320,54 @@ form{
     background: #FFF;
 }
 
-#img-btn{
+
+#img-add{
+    /*visibility: hidden;*/
+    cursor: pointer;
+}
+
+#img-del{
+    width: 5.94644rem;
+    height: 2.25rem;
+    border-radius: 1.875rem;
+    border-style: none;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+#btn-wrap{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
 }
 
-#img-btn > input{
+#btn-label{
+    margin-top: 0.38rem;
+    color: #101010;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+#img-add-btn{
+    cursor: pointer;
     width: 5.94644rem;
     height: 2.25rem;
     border-radius: 1.875rem;
     border-style: none;
     background: #FFF;
-    color: #101010;
-    text-align: center;
-    font-size: 1.25rem;
-    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#img-del-btn{
+
 }
 
 #form-text{
@@ -335,7 +388,7 @@ form{
 #status-title{
     color: #FFF;
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 #item-group {
@@ -343,7 +396,7 @@ form{
     flex-direction: column;
 }
 
-#item-name{
+#item-title{
     display: flex;
     flex-direction: column;
 }
@@ -422,14 +475,13 @@ form{
     padding-left: 0.63rem;
 }
 
-label {
+#toggle-wrap {
     display: inline-flex;
     align-items: center;
     gap: 1rem;
-    cursor: pointer;
   }
 
-  label > span{
+  #toggle-wrap > span{ /*토글 텍스트*/
     color: #FFF;
     font-family: Pretendard;
     font-size: 1.5rem;
@@ -445,6 +497,7 @@ label {
     border-radius: 6.25rem;
     width: 3.25rem;
     height: 2rem;
+    cursor: pointer;
   }
   
   [type="checkbox"]::before {
@@ -469,6 +522,7 @@ label {
     left: 1.35rem;
   }
 
+
 #item-status{
     display: flex;
     align-items: center;
@@ -489,6 +543,7 @@ hr{
     text-align: center;
     font-size: 1.5rem;  
     font-weight: 600;
+    cursor: pointer;
 }
 
 .dropdown-label{
@@ -500,7 +555,7 @@ hr{
 
 .dropdown{
   position : relative;
-  display : inline-block;
+  display : x
 }
 
 .dropbtn_icon{
@@ -508,7 +563,6 @@ hr{
 }
 
 .dropbtn{
-    display : block;
     width: 25rem;
     height: 2.5rem;
     border-radius: 0.1875rem;
@@ -518,11 +572,11 @@ hr{
     cursor : pointer;
     color: rgba(16, 16, 16, 0.50);
     padding-left: 0.63rem;
-    position : relative;
 }
 
 .dropdown-content{
     display : none;
+    display: absolute;
     z-index : 1; /*다른 요소들보다 앞에 배치*/
     font-weight: 400;
     background-color: #101010;
