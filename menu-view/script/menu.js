@@ -37,6 +37,7 @@ function loadFile(input) {
 
   //이미지를 image-show div에 추가
   var container = document.getElementById('img-view');
+  
   container.appendChild(newImage);
 };
 
