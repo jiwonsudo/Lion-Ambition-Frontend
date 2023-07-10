@@ -47,12 +47,12 @@ function delFile(){
 
 // 상품그룹 드롭다운
 window.onload=()=>{
-  document.querySelector('.dropbtn_click').onclick = ()=>{
+  document.querySelector('.dropbtn_click').onmouseover = ()=>{
     dropdown();
   }
   document.getElementsByClassName('menu-list').onclick = ()=>{
     showMenu(value);
-  }
+  };
 
 dropdown = () => {
     var v = document.querySelector('.dropdown-content');

@@ -251,10 +251,10 @@ a{
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     display: none;
   }
-  
+
 #modal-body {
     position : absolute;
-    top: 64%;
+    top: 60%;
     left: 50%;
     bottom : 0;
     width: 74.9375rem;
@@ -271,10 +271,12 @@ a{
 }
 
 #close-btn {
-    float:right;
+    position: absolute;
+    left: 70.27788rem;
+    top: 2.73406rem;
     width: 1.91125rem;
     height: 1.97375rem;
-    color: #FFF;
+    color: #fff;
     cursor: pointer;
 }
 
@@ -577,7 +579,6 @@ hr{
 
 .dropdown-content{
     display : none;
-    display: absolute;
     z-index : 1; /*다른 요소들보다 앞에 배치*/
     font-weight: 400;
     background-color: #101010;
@@ -612,5 +613,5 @@ hr{
 }
 
 .dropdown-content.show{
-  display : block;
+    display: block;
 }
