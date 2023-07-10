@@ -1,0 +1,254 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard-Regular';
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul, li{
+    list-style: none;
+}
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#head-logo {
+    justify-content: center;
+    width: 12.5rem;
+    height: 9.03225rem;
+    flex-shrink: 0;
+    margin-left: 38.75rem;
+    margin-right: 9.56rem;
+    margin-top: 3.13rem;
+    margin-bottom: 2.05rem;
+}
+
+.profile-bar {
+    display: inline-flex;
+    padding: 1.5625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 6.25rem;
+    margin-left: 6.88rem;
+    margin-top: 7.91rem;
+    margin-bottom: 2.05rem;
+}
+.logout {
+    background-color: white;
+    border: none;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+}
+
+a{
+    color: #101010;     /*#A7A7A7*/
+    text-decoration-line: none;
+    /*
+    text-align: center;
+    font-size: 1.5625rem;
+    font-family: Pretendard;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    */
+}
+
+
+
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+
+.ordermenu-board{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 30rem;
+    height: 45.4375rem;
+    background-color: #FEC969;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    font-size: 23px;
+}
+
+.orderstatus {
+    background-color: blue;
+}
+
+.ordermenu-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    background-color: white;
+    justify-content: space-around;
+    width: 400px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    height: 70px;
+    margin: 5px;
+    font-size: 17px;
+    font-weight: lighter
+    text-align: center;
+}
+
+.cookingfinish-board{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 30rem;
+    height: 45.4375rem;
+    background-color: lightgray;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.cookingfinish-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    background-color: white;
+    justify-content: space-around;
+    width: 400px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    height: 70px;
+    margin: 5px;
+    font-size: 17px;
+    text-align: center;
+}
+
+/*
+.item {
+    border : 1px;
+    padding: 10px
+    display :flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 23rem;
+    height: 45.4375rem;
+    background-color: #FEC969;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+}
+*/
+/*
+.ordermenu-board {
+    background-color: #FEC969;
+}
+
+.cookingfinish-board {
+    background-color: grey;
+}
+*/
+/* section */
+.sec{
+    text-align: center;
+    padding: 100px 0;
+    background-color: black;
+}
+
+.sec article{
+    float: left;
+    width: 300px;
+    margin-right: 30px;
+}
+
+.sec article:last-child{
+    margin-right: 0;
+}
+
+.sec article img{
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+
+
+.calendar-nav {
+    text-align: justify;
+    text-align-last: right;
+    justify-content: flex-end;
+}
+
+
+.status-nav{
+    font-size: 1.5625rem;
+    font-weight: bold;
+}
+
+
+.nav-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 22.5rem;
+}
+
+.nav-item {
+    padding: 0 0.6rem;
+}
+
+.nav-order {
+    color: #101010;
+    text-align: center;
+    font-size: 1.5625rem;
+    font-family: Pretendard;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.select-bar {
+    width: 4.375rem;
+    height: 0.3375rem;
+    background: #FEC969;
+    
+}
+
+
+.board-container {
+    display: flex;
+    justify-content: space-between;
+}

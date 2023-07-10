@@ -20,18 +20,33 @@ closeModalBtn.addEventListener("click", () => {
   document.body.style.overflow = "auto"; // 스크롤바 보이기
 });
 
-function setThumbnail(event) {
-  var reader = new FileReader();
 
-  reader.onload = function(event) {
-    var img = document.createElement("img-add");
-    img.setAttribute("src", event.target.result);
-    document.querySelector("div#img-view").appendChild(img);
-  };
+// 이미지 등록
+function loadFile(input) {
+  var file = input.files[0];	//선택된 파일 가져오기
 
-  reader.readAsDataURL(event.target.files[0]);
+  //새로운 이미지 div 추가
+  var newImage = document.createElement("img");
+  newImage.setAttribute("class", 'img');
+
+  //이미지 source 가져오기
+  newImage.style.width = "100%";
+  newImage.style.height = "100%";
+  newImage.src = URL.createObjectURL(file);   
+  newImage.style.objectFit = "contain";
+
+  //이미지를 image-show div에 추가
+  var container = document.getElementById('img-view');
+  
+  container.appendChild(newImage);
+};
+
+// 이미지 삭제
+function delFile(){
+  document.querySelector("div#img-view").innerHTML = '';
 }
 
+// 상품그룹 드롭다운
 window.onload=()=>{
   document.querySelector('.dropbtn_click').onclick = ()=>{
     dropdown();
@@ -47,22 +62,18 @@ dropdown = () => {
   }
 
 showMenu=(value)=>{
-    var dropbtn_icon = document.querySelector('.dropbtn_icon');
     var dropbtn_content = document.querySelector('.dropbtn_content');
     var dropbtn_click = document.querySelector('.dropbtn_click');
     var dropbtn = document.querySelector('.dropbtn');
 
-    dropbtn_icon.innerText = '';
     dropbtn_content.innerText = value;
-    dropbtn_content.style.color = '#252525';
+    dropbtn_content.style.color = '#101010';
  }
 }
 
 window.onclick= (e)=>{
   if(!e.target.matches('.dropbtn_click')){
     var dropdowns = document.getElementsByClassName("dropdown-content");
-
-    var dropbtn_icon = document.querySelector('.dropbtn_icon');
     var dropbtn_content = document.querySelector('.dropbtn_content');
     var dropbtn_click = document.querySelector('.dropbtn_click');
     var dropbtn = document.querySelector('.dropbtn');
