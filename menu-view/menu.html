@@ -21,9 +21,9 @@
     <nav>
         <div class="status-nav">
             <ul class="nav-btn">
-                <li class="nav-item"><a class="nav-order" href="/Orderpage/order.html">주문</a></li>    
-                <li class="nav-item"><a class="nav-menu" href="./menu.html">메뉴</a></li>   
-                <li class="nav-item"><a class="nav-manage" href="/SalesManagementPage/manage.html">매출</a></li>   
+                <li class="nav-item"><a class="nav-order" href="/orderview/ordercopy.html">주문</a></li>    
+                <li class="nav-item"><a class="nav-menu" href="/menu-view/menu.html">메뉴</a></li>   
+                <li class="nav-item"><a class="nav-manage" href="/ambitious-lion-common/SalesManagementPage/manage.html">매출</a></li>   
             </ul>
         </div>
         <div class="triangle"></div>
@@ -106,25 +106,25 @@
                         <div id="form-img">
                             <div id="img-view"></div>
                             <div id="btn-wrap">
-                                <div id="img-add-btn">
-                                    <label id="btn-label">
+                                <label for="img-add">
+                                    <div id="btn-text">
                                         등록
-                                    </label>
-                                    <input type="file" 
-                                    id="img-add" 
-                                    accept="image/*" 
-                                    onchange="loadFile(this)";
-                                   >
-                                </div>
-                                <div id="img-del-btn">
-                                    <button type="button" 
-                                    id="img-del"
-                                    onclick="delFile()">
-                                    <span id="btn-label">
+                                    </div>
+                                </label>
+                                <input type="file" 
+                                id="img-add" 
+                                accept="image/*" 
+                                onchange="loadFile(this)";
+                               >
+                                <label for="img-del">
+                                    <div id="btn-text">
                                         삭제
-                                    </span>
-                                    </button>
-                                </div>
+                                    </div>
+                                </label>
+                                <input type="button"
+                                id="img-del"
+                                onclick="delFile()";
+                                >
                             </div>
                         </div>
                         <div id="form-text">
@@ -160,8 +160,8 @@
                                 <span id="status-title">상태</span>
                                 <div id="toggle">
                                     <label id="toggle-wrap">
-                                        <span>판매중</span>
-                                        <input role="switch" type="checkbox">
+                                        <span id="result">판매중</span>
+                                        <input role="switch" id="toggle-checkbox" type="checkbox" onclick="is_checked()">
                                     </label>
                                 </div>
                             </div>
