@@ -42,14 +42,14 @@ const makeCalendar = (date) => {
     for (let i = 1; i <= lastDay; i++) {    
       htmlDummy += `<div>${i}</div>`;
     }
-    */
+  */
 
   // 바뀐 부분
   for (let i = 1; i <= lastDay; i++) {
     const date = `${currentYear}-${currentMonth.pad()}-${i.pad()}`;
     htmlDummy += `
         <div>
-          <button id="add-btn">${i}</button>
+          <button id="add-btn"></button>${i}
           <p>${calendarList[date]?.join("</p><p>") || ""}</p>
         </div>
       `;
