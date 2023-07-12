@@ -49,8 +49,11 @@
         <div id="list-menu">
             <ul id="card-list">
                 <li id="card-item">
-                        <img src = "./assets/야심작_버거.png">
-                        <span id="item-name">야심작 버거</span>
+                    <img src = "./assets/야심작_버거.png">
+                    <span id="item-name">야심작 버거</span>
+                    <div id="soldout">
+                        <p id="soldout-text">품절</p>
+                    </div>
                 </li>
                 <li id="card-item">
                         <img src = "./assets/화끈한_불고기_버거.png">
@@ -141,10 +144,10 @@
                                 <div id="item-group">
                                     <span id="input-title">상품그룹</span>
                                       <div class="dropdown">
-                                        <button class="dropbtn">
+                                        <button class="dropbtn" onmouseover="dropdown()">
                                           <span class="dropbtn_content">상품그룹 선택</span>
                                           <span class="dropbtn_click" style="font-family: Material Icons; color : #3b3b3b; float:right;"
-                                          onmouseover="dropdown()">arrow_drop_down</span>
+                                          >arrow_drop_down</span>
                                         </button>
                                         <div class="dropdown-content">
                                           <div class="menu-list" onclick="showMenu(this.innerText)">버거</div>
