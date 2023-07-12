@@ -12,6 +12,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration-line: none;
+    border-style: none ;
     font-family: 'Pretendard-Regular';
 }
 
@@ -238,6 +239,32 @@ a{
     margin: 1.58rem;
 }
 
+#soldout{
+    top:0;
+    bottom: 0;
+    z-index: 1;
+    width: 15.625rem;
+    height: 18.75rem;
+    border-radius: 0.625rem;
+    background: rgba(16, 16, 16, 0.90);
+
+    display: none;
+    padding: 8.1875rem 6.0625rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+#soldout-text{
+    color: #FFF;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
 
 
 /* modal */
@@ -299,6 +326,7 @@ hr {
     }
 
 #item-detail{
+    z-index : 2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -427,7 +455,6 @@ form{
 #group-content{
     display : none;
     position : absolute;
-    z-index : 1; /*다른 요소들보다 앞에 배치*/
     font-weight: 400;
     background-color: #101010;
     width: 100%;
@@ -579,10 +606,11 @@ hr{
 
 .dropdown-content{
     display : none;
-    z-index : 1; /*다른 요소들보다 앞에 배치*/
+    z-index: 3;
     font-weight: 400;
     background-color: #101010;
     width: 100%;
+    overflow: auto;
 }
 
 .dropdown-content::-webkit-scrollbar{
@@ -614,4 +642,6 @@ hr{
 
 .dropdown-content.show{
     display: block;
+    z-index: 4;
+    flex-direction: column;
 }
