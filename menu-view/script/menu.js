@@ -33,11 +33,10 @@ function loadFile(input) {
   newImage.style.width = "100%";
   newImage.style.height = "100%";
   newImage.src = URL.createObjectURL(file);   
-  newImage.style.objectFit = "contain";
+  newImage.style.objectFit = "cover";
 
   //이미지를 image-show div에 추가
   var container = document.getElementById('img-view');
-  
   container.appendChild(newImage);
 };
 
@@ -48,12 +47,12 @@ function delFile(){
 
 // 상품그룹 드롭다운
 window.onload=()=>{
-  document.querySelector('.dropbtn_click').onclick = ()=>{
+  document.querySelector('.dropbtn_click').onmouseover = ()=>{
     dropdown();
   }
   document.getElementsByClassName('menu-list').onclick = ()=>{
     showMenu(value);
-  }
+  };
 
 dropdown = () => {
     var v = document.querySelector('.dropdown-content');
@@ -85,5 +84,19 @@ window.onclick= (e)=>{
         openDropdown.classList.remove('show');
       }
     }
+  }
+}
+
+//토글 상태 변경
+function is_checked() {
+  const checkbox = document.getElementById('toggle-checkbox');
+
+  //checked 속성 체크
+  const is_checked = checkbox.checked;
+
+  if(is_checked){
+    document.getElementById('result').innerText = "품절";
+  }else{
+    document.getElementById('result').innerText = "판매중";
   }
 }
