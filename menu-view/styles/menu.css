@@ -141,6 +141,8 @@ a{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 2.05rem;
+    bottom : 0;
     width: 75rem;
     height: 45.4375rem;
     background-color: #FEC969;
@@ -249,10 +251,10 @@ a{
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     display: none;
   }
-  
+
 #modal-body {
     position : absolute;
-    top: 64%;
+    top: 60%;
     left: 50%;
     bottom : 0;
     width: 74.9375rem;
@@ -269,10 +271,12 @@ a{
 }
 
 #close-btn {
-    float:right;
+    position: absolute;
+    left: 70.27788rem;
+    top: 2.73406rem;
     width: 1.91125rem;
     height: 1.97375rem;
-    color: #FFF;
+    color: #fff;
     cursor: pointer;
 }
 
@@ -322,32 +326,32 @@ form{
 
 
 #img-add{
-    /*visibility: hidden;*/
+    display: none;
     cursor: pointer;
 }
 
 #img-del{
+    display: none;
+    cursor: pointer;
+}
+
+#btn-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1.5rem;
+}
+
+#btn-text{
+    cursor: pointer;
     width: 5.94644rem;
     height: 2.25rem;
     border-radius: 1.875rem;
     border-style: none;
     background: #FFF;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-}
-
-
-#btn-wrap{
-    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
-}
-
-#btn-label{
-    margin-top: 0.38rem;
     color: #101010;
     text-align: center;
     font-size: 1.25rem;
@@ -364,10 +368,6 @@ form{
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#img-del-btn{
-
 }
 
 #form-text{
@@ -482,19 +482,22 @@ form{
   }
 
   #toggle-wrap > span{ /*토글 텍스트*/
+    width: 3.9375rem;
+    height: 1.8125rem;
     color: #FFF;
     font-family: Pretendard;
-    font-size: 1.5rem;
-    font-style: normal;
+    font-size: 1.25rem;
     font-weight: 400;
-    line-height: normal;
+    text-align: right;
   }
 
   [type="checkbox"] {
     appearance: none;
     position: relative;
-    border: max(2px, 0.1rem) solid gray;
+    border: max(2px, 0.1rem) solid;
+    border-color: rgba(254, 172, 24, 1);
     border-radius: 6.25rem;
+    background-color: rgba(254, 172, 24, 1);
     width: 3.25rem;
     height: 2rem;
     cursor: pointer;
@@ -503,23 +506,23 @@ form{
   [type="checkbox"]::before {
     content: "";
     position: absolute;
-    left: 0;
+    right: 0;
     width: 1.75rem;
     height: 1.75rem;
     border-radius: 50%;
     transform: scale(0.8);
-    background-color: gray;
-    transition: left 300ms linear;
+    background-color: white;
+    transition: right 300ms linear;
   }
   
   [type="checkbox"]:checked {
-    background-color: rgba(254, 172, 24, 1);
-    border-color: rgba(254, 172, 24, 1);
+    background-color: rgba(255,255,255,0);
+    border-color: gray;
   }
   
   [type="checkbox"]:checked::before {
-    background-color: white;
-    left: 1.35rem;
+    background-color: gray;
+    right: 1.25rem;
   }
 
 
@@ -576,7 +579,6 @@ hr{
 
 .dropdown-content{
     display : none;
-    display: absolute;
     z-index : 1; /*다른 요소들보다 앞에 배치*/
     font-weight: 400;
     background-color: #101010;
@@ -611,5 +613,5 @@ hr{
 }
 
 .dropdown-content.show{
-  display : block;
+    display: block;
 }
