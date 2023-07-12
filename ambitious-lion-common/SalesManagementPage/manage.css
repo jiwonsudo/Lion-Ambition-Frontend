@@ -108,12 +108,9 @@ a {
 .main-board {
   margin-top: 2.25rem;
   width: 75rem;
-  height: 47.4375rem;
   background-color: #fec969;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
   padding-left: 3.5rem;
   padding-right: 3.5rem;
 }

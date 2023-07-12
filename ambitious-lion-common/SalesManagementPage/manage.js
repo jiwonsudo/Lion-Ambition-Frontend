@@ -82,24 +82,6 @@ document.querySelector(`.nextDay`).onclick = () => {
 //--------------- 모달창 부분 ---------------
 
 // 이동
-
-function testFun() {
-  const modal = document.querySelector(".modal");
-  const btnOpenPopup = document.getElementById("add-btn");
-  const btnClosePopup = document.getElementById("close-btn");
-
-  btnOpenPopup.addEventListener("click", () => {
-    console.log("hello");
-    modal.style.display = "block";
-    document.body.style.overflow = "hidden";
-  });
-
-  btnClosePopup.addEventListener("click", () => {
-    modal.style.display = "none";
-    document.body.style.overflow = "auto";
-  });
-}
-
 const modal = document.querySelector(".modal");
 const btnOpenPopup = document.getElementById("add-btn");
 const btnClosePopup = document.getElementById("close-btn");
