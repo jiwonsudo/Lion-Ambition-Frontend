@@ -114,6 +114,7 @@ btnClosePopup.addEventListener("click", () => {
   document.body.style.overflow = "auto";
 });
 
+//지영 추가한 부분
 $(document).on("click", "#add-btn", function () {
   // on 이벤트로 변경
   modal.style.display = "block";
