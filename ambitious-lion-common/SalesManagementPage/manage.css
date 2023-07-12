@@ -108,12 +108,9 @@ a {
 .main-board {
   margin-top: 2.25rem;
   width: 75rem;
-  height: 47.4375rem;
   background-color: #fec969;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
   padding-left: 3.5rem;
   padding-right: 3.5rem;
 }
@@ -204,7 +201,6 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
@@ -235,10 +231,11 @@ a {
 
 #add-btn {
   position: absolute;
-  width: 1rem;
-  height: 1rem;
+  z-index: 2;
+  width: 8rem;
+  height: 4.7rem;
   border-style: none;
-  background-color: rgba(0, 0, 0, 0.2); /* 버튼 구현되면 불투명도 0으로 바꿔*/
+  background-color: rgba(0, 0, 0, 0); /* 버튼 구현되면 불투명도 0으로 바꿔*/
   color: #101010;
   text-align: center;
   font-family: Pretendard;
@@ -298,7 +295,6 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
   color: #fff;
   font-family: Pretendard;
   font-size: 1.5rem;
