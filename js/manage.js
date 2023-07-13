@@ -49,7 +49,7 @@ const makeCalendar = (date) => {
     const date = `${currentYear}-${currentMonth.pad()}-${i.pad()}`;
     htmlDummy += `
         <div>
-          <button id="add-btn"></button>${i}
+          <button class="add-btn ${i}"></button><p>${i}</p>
           <p>${calendarList[date]?.join("</p><p>") || ""}</p>
         </div>
       `;
@@ -83,13 +83,16 @@ document.querySelector(`.nextDay`).onclick = () => {
 
 // 이동
 const modal = document.querySelector(".modal");
-const btnOpenPopup = document.getElementById("add-btn");
 const btnClosePopup = document.getElementById("close-btn");
 
-btnOpenPopup.addEventListener("click", () => {
-  modal.style.display = "block";
-  document.body.style.overflow = "hidden";
-});
+// 모달창 데이터
+const todayDate = document.querySelector(".today-date");
+const todayProduct = document.querySelector(".today-product");
+const todayCount = document.querySelector(".today-count");
+const todayPrice = document.querySelector(".today-price");
+const todayTotal = document.querySelector(".today-total");
+
+
 
 btnClosePopup.addEventListener("click", () => {
   modal.style.display = "none";
@@ -97,8 +100,21 @@ btnClosePopup.addEventListener("click", () => {
 });
 
 //지영 추가한 부분
-$(document).on("click", "#add-btn", function () {
+$(document).on("click", ".add-btn", function (event) {
+  /*
+  const currentYear = new Date(date).getFullYear();
+  const currentMonth = new Date(date).getMonth() + 1;
+  */
+
   // on 이벤트로 변경
   modal.style.display = "block";
   document.body.style.overflow = "hidden";
+
+  var todayDate = event.target.classList[1]
+  console.log(todayDate);
+
+  
+// 모달에 데이터를 보내
+  var todayDate2 = $(event.relatedTarget).data()
 });
+

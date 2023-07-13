@@ -229,7 +229,7 @@ a {
   transform: translateX(-50%) translateY(-50%);
 }
 
-#add-btn {
+.add-btn {
   position: absolute;
   z-index: 2;
   width: 8rem;
