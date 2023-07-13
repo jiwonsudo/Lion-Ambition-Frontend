@@ -18,6 +18,7 @@ function onclickLogin(){
         throw new Error('429 에러 발생: Too Many Requests');
       }
       console.log('SUCCESS', response);
+      window.location.href='manage'
     })
     .catch((error) => console.log('ERROR', error));
 }
