@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>사자의 야심작</title>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="{% static 'js/ordermenu.js'%}" defer></script>
     <link rel="stylesheet" href="{% static 'css/ordermenu.css'%}" />
   </head>
   <body>
@@ -64,7 +63,6 @@
       <!--접수완료 주문 부분  -->
       <div id="container">
         <div class="ordermenu-board">접수 완료된 주문</div>
-
         <!-- 조리완료 주문 부분 -->
         <div class="cookingfinish-board">조리 완료된 주문</div>
       </div>
@@ -122,6 +120,8 @@
     <!-- <input type="text" name="mb_11" id="mb_11" class="ts" autocomplete="off"/>             -->
 
     <script type="text/javascript">
+      let targetDate;
+
       $(function () {
         $("#date").datepicker({
           dateFormat: "yy/mm/dd",
@@ -151,6 +151,8 @@
             $("#year").val(year);
             $("#month").val(month);
             $("#day").val(day);
+            targetDate = `${year}-${month}-${day}`;
+            console.log(targetDate);
 
             //요일 가져오기
             //데이터를 먼저 가져오고 (숫자로 넘어옴)
@@ -162,9 +164,27 @@
 
             week = new Array("일", "월", "화", "수", "목", "금", "토");
             $("#mydate").text(week[date.getDay()]);
+
+            $.ajax({
+              type: "GET",
+              url: "http://127.0.0.1:8000/api/v1/order",
+              dataType: "json",
+              success: function (response) {
+                var filteredData = response.data.orders.filter(function (
+                  order
+                ) {
+                  return order.created_at.includes(targetDate);
+                });
+
+                console.log(filteredData);
+                $(".ordermenu-board").empty();
+                renderHTML(filteredData);
+              },
+            });
           },
         });
       });
     </script>
+    <script src="{% static 'js/ordermenu.js'%}" defer></script>
   </body>
 </html>
