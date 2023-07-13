@@ -1,5 +1,5 @@
-
 const productContainer = document.querySelector('.product-container');
+const bottomBtn = document.querySelector('.main-bottom-button');
 
 // 로컬 스토리지 안 프로덕트 렌더링 총괄 함수
 function renderProduct() {
@@ -8,7 +8,6 @@ function renderProduct() {
   for (let object in localStorageItems) {
     const itemData = JSON.parse(localStorageItems[object]);
     cartedProductDOMString += renderProductToDOM(itemData);
-    console.log(itemData); //test
   }
   productContainer.innerHTML = cartedProductDOMString;
   setCounter();
@@ -22,7 +21,7 @@ function renderProductToDOM(itemData) {
     <div class="menu" id="${itemData.id}">
       <div class="menu-image-container">
         <button class="menu-detail-button">
-          <img src="./assets/test_image_1.png">
+          <img src="${itemData.image_url}">
         </button>
       </div>
       <div class="menu-info">
@@ -124,6 +123,40 @@ function showPriceText() {
   }
 }
 
+// 결제 
+function postOrder() {
+  const itemsArray = [];
+  const localStorageItems = { ...localStorage };
+  for (let object in localStorageItems) {
+    const itemData = JSON.parse(localStorageItems[object]);
+    itemsArray.push({
+      "product-id": Number(itemData.id),
+      "quantity": Number(itemData.quantity),
+    });
+  }
+
+  if (itemsArray.length === 0) {
+    alert('장바구니가 비었습니다. 메뉴를 추가해주세요.');
+    return;
+  }
+  fetch('/api/v1/order', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+  },
+    body: JSON.stringify({
+      "items": itemsArray,
+    }),
+  })
+  .then(async response => {
+    const res = await response.json()
+    localStorage.clear();
+    localStorage.setItem('orderID', res.data.order.id);
+    window.location.href = '/m/receipt';
+  });
+}
+
 // 주 실행부
 
 renderProduct();
+bottomBtn.addEventListener('click', postOrder);

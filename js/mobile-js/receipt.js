@@ -29,35 +29,18 @@ function renderOrderedItemDOM(itemData) {
   `;
 }
 
-const testData = {
-  "order": {
-    "id": 1,
-    "status": 1,
-    "status_name": "접수 전",
-    "created_at": "2023-07-05T20:36:55",
-    "modified_at": "YYYY-MM-DDThh:mm:ss",
-    "items": [
-      {
-        "product_id": 1,
-        "product_name": "야심작 버거",
-        "quantity": 1,
-        "unit_price": 8000,
-      },
-      {
-        "product_id": 2,
-        "product_name": "화끈한 불고기 버거",
-        "quantity": 2,
-        "unit_price": 5000,
-      },
-      {
-        "product_id": 3,
-        "product_name": "불멸의 에너지",
-        "quantity": 3,
-        "unit_price": 4000,
-      }
-    ],
-    "total_price": 30000
-  }
+function getOrder(orderID) {
+  fetch(`http://127.0.0.1:8000/api/v1/order/${orderID}`, {
+    method: 'GET',
+  })
+  .then(async response => {
+    const res = await response.json()
+    orderGetResponse = res.data; // -> array
+    renderOrderList(orderGetResponse);
+    console.log(orderGetResponse);
+    localStorage.clear();
+  })
+  .catch(error => console.error('Error:', error))
 }
 
-renderOrderList(testData);
+getOrder(localStorage.getItem('orderID'));
