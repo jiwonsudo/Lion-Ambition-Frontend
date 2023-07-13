@@ -1,19 +1,37 @@
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+}
 
 function logOutPage() {
-    //로그아웃 로직 구현하세요
-    location.href = "login_view.html";
-}
-function goToOrderPage() {
-    // 주문 페이지로 이동하는 로직을 구현하세요
-    location.href = "order_view.html";
-}
-
-function goToMenuPage() {
-    // 메뉴 페이지로 이동하는 로직을 구현하세요
-    location.href = "menu_view.html";
-}
-
-function goToSalesPage() {
-    // 매출 페이지로 이동하는 로직을 구현하세요
-    location.href = "sales_view.html";
+    var email = $('#email').val();
+    console.log(email);
+    $.ajax({
+        type: 'POST',
+        url: 'http://127.0.0.1:8000/api/v1/email/validation',
+        contentType : 'application/json',
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        data: JSON.stringify({
+          "email": email,
+          //백엔드에 보낸 데이터를 여기에 적어야 된다
+        }),
+        success : function(data){
+          console.log(data);
+        },
+        error: function(request, status, error){
+          console.log(status);
+        }
+    })
 }
