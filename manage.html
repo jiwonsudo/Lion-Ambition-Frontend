@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,18 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>사자의 야심작</title>
-    <script src="./manage.js" defer></script>
+    <script src="{% static 'js/manage.js' %}" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="./manage.css" />
+    <link rel="stylesheet" href="{% static 'css/manage.css' %}" />
   </head>
   <body>
     <header>
       <h1 id="head-logo">
-        <a href="#"><img src="/Image/LionAmbitious.png" /></a>
+        <a href="#"><img src="{% static 'image/LionAmbitious.png' %}" /></a>
       </h1>
       <div class="me-bar">
         <p class="user-name">admin 님</p>
-        <button class="logout">로그아웃</button>
+        <a class="logout" href="/logout" >로그아웃</a>
       </div>
     </header>
     <nav>
@@ -41,9 +43,9 @@
     <div class="main-board">
       <div class="rap">
         <div class="section">
-          <div class="btn prevDay"><img src="/Image/arrow.png" /></div>
+          <div class="btn prevDay"><img src="{% static 'image/arrow.png' %}" /></div>
           <h2 class="dateTitle"></h2>
-          <div class="btn nextDay"><img src="/Image/arrow.png" /></div>
+          <div class="btn nextDay"><img src="{% static 'image/arrow.png' %}" /></div>
         </div>
         <div class="calender">
           <div class="grid dateHead">
@@ -86,14 +88,16 @@
           <div class="today">
             <p class="today-sales">일별 매출 상세</p>
             <hr />
-            <p class="today-date">날짜: 23-07-09 일요일</p>
-            <div class="product-info">
-              <div class="flex1">
-                <p class="today-product">야심작 버거</p>
-                <p class="multi-icon">x</p>
-                <p class="today-count">20</p>
+            <p class="today-date">날짜: </p>
+            <div id="today-items">
+              <div class="product-info">
+                <div class="flex1">
+                  <p class="today-product">야심작 버거</p>
+                  <p class="multi-icon">x</p>
+                  <p class="today-count">20</p>
+                </div>
+                <p class="today-price">160,000</p>
               </div>
-              <p class="today-price">160,000</p>
             </div>
             <hr />
             <p class="today-total">총:160,000 원</p>
