@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사자의 야심작</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="./script/menu.js" defer></script>
     <link rel="stylesheet" href="./styles/menu.css">
 </head>
@@ -48,49 +49,12 @@
         </div>
         <div id="list-menu">
             <ul id="card-list">
-                <li id="card-item">
-                    <img src = "./assets/야심작_버거.png">
+               <!-- <li id="card-item">
+                    <img id="card-img" src = "./assets/야심작_버거.png">
                     <span id="item-name">야심작 버거</span>
-                    <div id="soldout">
-                        <p id="soldout-text">품절</p>
-                    </div>
-                </li>
-                <li id="card-item">
-                        <img src = "./assets/화끈한_불고기_버거.png">
-                        <span id="item-name">화끈한 불고기 버거</span>
-                </li>
-                <li id="card-item">
-                    <img src = "./assets/치즈_폭탄_버거.png">
-                    <span id="item-name">치즈 폭탄 버거</span>
-                </li>
-                <li id="card-item">
-                    <img src = "./assets/크런치_쉬림프_버거.png">
-                    <span id="item-name">크런치 쉬림프 버거</span>
-                </li>
-                <li id="card-item">
-                    <img src = "./assets/멕시칸_스타일_버거.png">
-                    <span id="item-name">멕시칸 스타일 버거</span>
-                </li>
-                <li id="card-item">
-                    <img src = "./assets/골든_프렌치_프라이.png">
-                    <span id="item-name">골든 프렌치 프라이</span>
-                </li>
-                <li id="card-item">
-                    <img src = "./assets/정글_어니언_링.png">
-                    <span id="item-name">정글 어니언 링</span>
-                </li>
-                <li id="card-item">
-                    <img src = "./assets/핫_윙.png">
-                    <span id="item-name">핫 윙</span>
-                </li>
-                <li id="card-item">
-                    <img src = "./assets/핫_윙.png">
-                    <span id="item-name">핫 윙</span>
-                </li>
-                <li id="card-item">
-                    <img src = "./assets/핫_윙.png">
-                    <span id="item-name">핫 윙</span>
-                </li>
+                    <span id="card-price">8000</span>
+                    <span id="card-category">햄버거</span>
+                </li> -->
             </ul>
         </div>
     </div>
@@ -116,7 +80,9 @@
                     <hr />
                     <form method="post" enctype="multipart/form-data">
                         <div id="form-img">
-                            <div id="img-view"></div>
+                            <div id="img-view">
+                                <img class="item-img">
+                            </div>
                             <div id="btn-wrap">
                                 <label for="img-add">
                                     <div id="btn-text">
@@ -159,12 +125,12 @@
                                 <br>
                                 <div id="item-title">
                                     <span id="input-title">상품명</span>
-                                    <input type="text" placeholder="상품명 입력">
+                                    <input type="text" placeholder="상품명 입력" name="pd_name" value="">
                                 </div>
                                 <br>
                                 <div id="item-price">
                                     <span id="input-title">가격</span>
-                                    <input type="text" placeholder="가격 입력">
+                                    <input type="text" placeholder="가격 입력" name="pd_price" value="">
                                 </div>
                                 <br>
                             </div>
@@ -180,15 +146,83 @@
                             <br>
                         </div>
                     </form>
-                    <hr />
-                    <input type="submit"
-                    id="save-btn"
-                    value="저장"> 
+                    <div id="form-btn">
+                        <hr>
+                        <input
+                        role="switch"
+                        type="button"
+                        id="edit-btn"
+                        value="수정"
+                        >
+                       <input type="submit"
+                        id="submit-btn"
+                        value="저장"
+                        onclick="changeEdit()">
+                    </div>
                 </div>
               </div>
         </div>
         </div>
     </div>
+<script>
+// main board
+data = {
+  data: {
+    products: [
+      {
+        id: 1,
+        category: {
+          id: 1,
+          name: "햄버거",
+        },
+        name: "야심작 버거",
+        image_url: "https://thumb.mt.co.kr/06/2021/03/2021030517294890953_1.jpg/dims/optimize/",
+        price: 8000,
+        is_soldout: true,
+      },
+      {
+        id: 99,
+        category: {
+          id: 3,
+          name: "음료",
+        },
+        name: "불멸의 에너지",
+        image_url: "https://drive.google.com/.../1021b3a4.jpg",
+        price: 12000,
+        is_soldout: false,
+      },
+    ],
+    page: 1,
+  },
+};
 
+console.log(data);
+
+// HTML 렌더링 함수
+function renderHTML(data) {
+    var productList = data.data.products;
+    var productContainer = document.getElementById('card-list');
+
+      for (var i = 0; i < productList.length; i++) {
+        var product = productList[i];
+
+        // 상품 정보 표시
+        var productDiv = document.createElement('li');
+        productDiv.setAttribute("id", "card-item");
+        productDiv.innerHTML = `
+            <img id=card-img src="${product.image_url}" alt="${product.name}" />
+            <span id="item-name">${product.name}</span>       
+            <span id="card-price">${product.price}</span> 
+            <span id="card-category">${product.category.name}</span> 
+        `;
+
+        // 상품 컨테이너에 추가
+        productContainer.appendChild(productDiv);
+      }
+    }
+
+    // 렌더링 실행
+    renderHTML(data);
+</script>
 </body>
 </html>
