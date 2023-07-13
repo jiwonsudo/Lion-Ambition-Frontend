@@ -1,14 +1,15 @@
 //로그인하는 함수이다
 
-function onclickLogin(){
+function onclickLogin() {
+  
     fetch('http://127.0.0.1:8000/api/v1/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: 'admin@likelion.org',
-        password: '0000',
+        email: $('#email').val(),
+        password: $('#password').val(),
       }),
     })
     .then((response) => {
@@ -20,7 +21,9 @@ function onclickLogin(){
         throw new Error('429 에러 발생: Too Many Requests');
       }
       console.log('SUCCESS', response);
-      window.location.href='manage'
+      alert("로그인이 완료되었습니다")
+      window.location.replace('/manage')
     })
     .catch((error) => console.log('ERROR', error));
+
 }

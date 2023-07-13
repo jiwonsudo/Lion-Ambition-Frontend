@@ -1,19 +1,23 @@
 let data;
 
-$.ajax({
-  type: "GET",
-  url: "http://127.0.0.1:8000/api/v1/order",
-  dataType: "json",
-  success: function (data) {
-    data = data;
-    renderHTML(data);
-    console.log(data);
+function filterOrdersByDate(orders, targetDate) {
+  const filteredOrders = orders.filter(
+    (order) => order.created_at === targetDate
+  );
+  return filteredOrders;
+}
 
-    let orderList = data.data.orders;
-    console.log(orderList);
-    orderList.forEach((item, index) => {});
-  },
-});
+// $.ajax({
+//   type: "GET",
+//   url: "http://127.0.0.1:8000/api/v1/order",
+//   dataType: "json",
+//   success: function (response) {
+//     data = response;
+
+//     console.log(data);
+//     renderHTML(data);
+//   },
+// });
 
 /*
 const button = document.querySelector('.modal');
@@ -58,7 +62,7 @@ $(document).on("click", ".cooked-btn", function () {
 //지영 추가한 부분
 // 통신 데이터 오는 곳
 function renderHTML(data) {
-  var orderList = data.data.orders;
+  var orderList = data;
   var orderContainer = $(".ordermenu-board");
 
   for (var i = 0; i < orderList.length; i++) {
@@ -68,7 +72,6 @@ function renderHTML(data) {
     // 상품 정보 표시
     var orderDiv = $("<div>");
     orderDiv.html(`
-        <div class="ordermenu-list">
           <div class="ordernumber-btn">${order.id}</div>
   
           <ul class="order-list">
@@ -80,10 +83,10 @@ function renderHTML(data) {
           <li class="orderstatus">
             <input type="button" class="cooked-btn" value=" 조리 완료 " />
           </li>
-      </div>
       `);
 
     // 상품 컨테이너에 추가
+    orderDiv.addClass("ordermenu-list");
     orderContainer.append(orderDiv);
   }
 }
@@ -117,7 +120,28 @@ function showModal(num) {
         sum += Number(`${item["unit-price"] * item.quantity}`);
       }
 
-      $("#modal-orderdate").text(`주문 날짜 : ${data.data.order.created_at}`);
+      //주문날짜 포맷스트링
+      const inputDate = `${data.data.order.created_at}`;
+
+      // 입력된 날짜를 JavaScript Date 객체로 변환
+      const dateObj = new Date(inputDate);
+
+      // 출력할 형식에 맞게 각각의 값을 추출
+      const year = String(dateObj.getFullYear()).slice(2); // 년도의 뒤 두 자리
+      const month = String(dateObj.getMonth() + 1).padStart(2, "0"); // 월
+      const day = String(dateObj.getDate()).padStart(2, "0"); // 일
+      const hour = String(dateObj.getHours()).padStart(2, "0"); // 시간
+      const minute = String(dateObj.getMinutes()).padStart(2, "0"); // 분
+      const dayOfWeek = ["일", "월", "화", "수", "목", "금", "토"][
+        dateObj.getDay()
+      ]; // 요일
+
+      // 변환된 값을 조합하여 출력 문자열 생성
+      const outputDate = `${year}-${month}-${day} ${hour}:${minute}, ${dayOfWeek}요일`;
+
+      console.log(outputDate); // "23-06-27 01:23, 화요일"
+
+      $("#modal-orderdate").text(`주문 날짜 : ${outputDate}`);
       $("#modal-ordernum").text(`주문번호 : ${num}`);
       $("#price-sum").text(sum);
     },
