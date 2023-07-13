@@ -1,46 +1,50 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입</title>
-    <link rel="stylesheet" href="styles/signup.css">
+    <title>관리자</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Prentendard">
-    <script src="scripts/signup.js"></script>
+    <link rel="stylesheet" href="{% static 'css/login_manage.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/login_manage.js' %}"></script> 
 </head>
 <body>
-    <div class="signup_body">
-        <div class="signup_logo">
-            <img src="assets/logo 2.png">
+    <header>
+        <h1 id="head-logo">
+            <a href="#"><img src="{% static 'image/logo 2.png' %}"></a>
+        </h1>
+        <div class="me-bar">
+            <p class="user-name">admin 님</p>
+            <button class="logout" style="cursor:pointer;" onclick="logOutPage();">로그아웃</button>
         </div>
-        <div class="signup_text">
-            <button type="button" style="cursor:pointer;" onclick="location.href='login_view.html'"><img src="assets/arrow.png"></button>
-            <h1>회원가입</h1>
+    </header>
+    <div class="order_o">
+        <div class="order">
+            <button type="button" style="cursor:pointer;" onclick="location.href='manage/order'">
+                <span class="order_order">주문</span>
+                <img src="{% static 'image/Mask group (1).png' %}">
+                <span class="order_what">주문 페이지에서</span>
+                <span class="order_what_what">주문 내역 확인이 가능합니다</span>
+            </button>
         </div>
-        <div class="signup_name">
-            <h2>닉네임</h2>
-            <input type="text" id="nickname" name="nickname">
+        <div class="menu">
+            <button type="button" style="cursor:pointer;" onclick="location.href='manage/menu'">
+                <span class="menu_menu">메뉴</span>
+                <img src="{% static 'image/Vector.png' %}">
+                <span class="menu_what">메뉴 페이지에서</span>
+                <span class="menu_what_what">메뉴를 수정할 수 있습니다</span>
+            </button>
         </div>
-        <div class="signup_email">
-            <h3>이메일</h3>
-            <input type="email" id="email" name="email" placeholder="E-mail">
-            <button type="button" style="cursor:pointer;" onclick="onsubmitEmail();">이메일 인증</button>
-        </div>
-        <div class="signup_email_num">
-            <h4>이메일 인증번호</h4>
-            <input type="text" id="number" name="number">
-            <button type="button" style="cursor:pointer;" onclick="onclickckEmail();">인증 확인</button>
-        </div>
-        <div class="signup_password">
-            <h5>비밀번호</h5>
-            <input type="password" id="password" name="password" placeholder="Password">
-        </div>
-        <div class="signup_password_ck">
-            <h6>비밀번호 확인</h6>
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Password">
-        </div>
-        <div class="signup_go">
-            <button type="button" style="cursor:pointer;" onclick="onsubmitSignup();">회원가입하기</button>
+        <div class="money">
+            <button type="button" style="cursor:pointer;" onclick="location.href='manage/sales'">
+                <span class="money_money">매출</span>
+                <img src="{% static 'image/Vector (1).png' %}">
+                <span class="meney_what">매출 페이지에서</span>
+                <span class="money_what_what">가게의 매출 현황을</span>
+                <span class="money_what_what">확인할 수 있습니다</span>
+            </button>
         </div>
     </div>
 </body>
