@@ -131,41 +131,72 @@ let data = {
       orderContainer.append(orderDiv);
     }
   }
-  // 렌더링 실행
-renderHTML(data);
+    // 렌더링 실행
+    renderHTML(data);
 
-//지영 추가한 부분
-$(document).on("click", ".ordernumber-btn", function (e) {
-  // on 이벤트로 변경
-  console.log("하이요");
+    //지영 추가한 부분
+    $(document).on("click", ".ordernumber-btn", function (e) {
+    // on 이벤트로 변경
+    console.log("하이요");
 
-  // 렌더링 실행
-  //renderModal(data);
-  let orderNumber = e.target.value;
-  var orderList = data.data.orders;
-  var orderdate = orderList[orderNumber-1].created_at;
+    // 렌더링 실행
+    //renderModal(data);
+    let orderNumber = e.target.value;
+    var orderList = data.data.orders;
+    var orderdate = orderList[orderNumber-1].created_at;
+    var orderprice = orderList[orderNumber-1].total_price;
 
-  console.log(orderNumber);
-  console.log(orderList[orderNumber-1]);
-//   console.log(orderdate);
-//   console.log(item-menu);
-//   console.log(item-price);
-
-
-
-  $("#modal-ordernum").text("주문 번호: " + orderNumber);
-  $("#modal-orderdate").text("주문 날짜: " + orderdate);  
-//   $("#datail-menu").text("주문한메뉴 " + item-menu);
-//   $("#datail-price").text("주문한가격 " + item-price);
+    console.log(orderNumber);
+    console.log(orderList[orderNumber-1]);
+    //  console.log(orderdate);
+    //   console.log(item-menu);
+    //   console.log(item-price);
 
 
 
+    $("#modal-ordernum").text("주문 번호: " + orderNumber);
+    $("#modal-orderdate").text("주문 날짜: " + orderdate);  
+    
+    //   $("#datail-menu").text("주문한메뉴 " + item-menu);
+    $("#price-sum").text("총: " + orderprice);
 
-  modal.style.display = "block";
+    //   $(".detail-menu").text("메뉴 " +ordermenu);  
+    //   $(".detail-price").text("가격 " + ordermenunum);
 
-  document.body.style.overflow = "hidden";
-});
+    var itemList = data.data.orders[orderNumber-1].items;
+    console.log(itemList)
 
-  
+        var itemContainer = $(".form-text");
+    
+        for (var i = 0; i < itemList.length; i++) {
+            var order = orderList[i];
+
+            var ordermenu = itemList.product;
+            var ordermenuNum = itemList.quantity;
+            var ordermenuPrice = itemList.unit-price;
+
+    
+            console.log(ordermenu, ordermenuNum)
+        
+
+
+    
+        // 상품 컨테이너에 추가
+        itemContainer.append(form-text);
+        }
+    $(".detail-menu").text("주문메뉴: " + ordermenu);
+    $(".detail-count").text("메뉴갯수: " + ordermenuNum);
+    $(".detail-price").text("메뉴가격: " + ordermenuPrice);
+
+    console.log(item-menu);
+    console.log(item-price);
+    console.log(item-count);
+
+    modal.style.display = "block";
+
+    document.body.style.overflow = "hidden";
+    });
+
+    
 
 
