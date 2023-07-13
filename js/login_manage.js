@@ -1,3 +1,5 @@
+//쿠키를 받아온다
+
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {

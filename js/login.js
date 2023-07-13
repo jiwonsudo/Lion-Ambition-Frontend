@@ -1,3 +1,5 @@
+//로그인하는 함수이다
+
 function onclickLogin(){
     fetch('http://127.0.0.1:8000/api/v1/login', {
       method: 'POST',

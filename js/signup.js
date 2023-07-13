@@ -35,7 +35,7 @@ function onsubmitEmail() {
       }
   })
 }
-
+//로그인하는 함수이다
 function onsubmitSignup(){
   var email = $('#email').val();
   var password = $('#password').val();
