@@ -47,12 +47,12 @@
         <!-- <p id="year"></p>년<p id="month"></p>월<p id="day"></p>일 -->
 
         <ul class="calendar-datetext">
-          <li class="calendar-text"><input type="text" id="year" />년</li>
-          <li class="calendar-text"><input type="text" id="month" />월</li>
-          <li class="calendar-text"><input type="text" id="day" />일</li>
+          <li class="calendar-text"><input type="text" id="year" size=1/>년</li>
+          <li class="calendar-text"><input type="text" id="month" size=1/>월</li>
+          <li class="calendar-text"><input type="text" id="day" size=1/>일</li>
 
           <li class="calendar-text">
-            <input type="text" id="date" placeholder="선택" />
+            <input type="text" id="date" placeholder="선택" size=7 />
           </li>
         </ul>
         <div class="calendar-image">
@@ -124,6 +124,14 @@
 
       $(function () {
         $("#date").datepicker({
+
+          //달력 이미지 누르면 달력 나오게 
+          showOn:"button",
+          buttonImage:"http://jqueryui.com/resources/demos/datepicker/images/calendar.gif" ,
+          buttonImageOnly: true,
+
+
+
           dateFormat: "yy/mm/dd",
           dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"],
           monthNames: [
