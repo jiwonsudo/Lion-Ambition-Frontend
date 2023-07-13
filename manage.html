@@ -17,7 +17,7 @@
         <a href="#"><img src="{% static 'image/LionAmbitious.png' %}" /></a>
       </h1>
       <div class="me-bar">
-        <p class="user-name">admin 님</p>
+        <p class="user-name">{{user.name}} 님</p>
         <a class="logout" href="/logout" >로그아웃</a>
       </div>
     </header>
@@ -25,13 +25,13 @@
       <div class="status-nav">
         <ul class="nav-btn">
           <li class="nav-item">
-            <a class="nav-order" href="/Orderpage/order.html">주문</a>
+            <a class="nav-order" href='/manage/order'>주문</a>
           </li>
           <li class="nav-item">
-            <a class="nav-menu" href="/Menupage/menu.html">메뉴</a>
+            <a class="nav-menu" href='/manage/menu'>메뉴</a>
           </li>
           <li class="nav-item">
-            <a class="nav-manage" href="./manage.html">매출</a>
+            <a class="nav-manage" href='/manage/sales'>매출</a>
           </li>
         </ul>
       </div>
