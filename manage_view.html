@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
             <a href="#"><img src="{% static 'image/logo 2.png' %}"></a>
         </h1>
         <div class="me-bar">
-            <p class="user-name">admin 님</p>
+            <p class="user-name">{{user.name}} 님</p>
             <button class="logout" style="cursor:pointer;" onclick="logOutPage();">로그아웃</button>
         </div>
     </header>
