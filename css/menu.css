@@ -14,6 +14,7 @@
     text-decoration-line: none;
     border-style: none ;
     font-family: 'Pretendard-Regular';
+    flex-shrink: 0;
 }
 
 body{
@@ -233,10 +234,24 @@ a{
     line-height: normal;
 }
 
-#card-item > img{
+#card-img{
     width: 12.39056rem;
     height: 12.37625rem;
     margin: 1.58rem;
+}
+
+.item-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#card-price{
+    display: none;
+}
+
+#card-category{
+    display: none;
 }
 
 #soldout{
@@ -284,8 +299,8 @@ a{
     top: 60%;
     left: 50%;
     bottom : 0;
-    width: 74.9375rem;
-    height: 45.4375rem;
+    width: 74.87513rem;
+    height: 45.64994rem;
     background-color: rgba(16, 16, 16, 0.90);
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
@@ -323,7 +338,8 @@ hr {
     border-top: 2px dotted #FFF;
     width: 50rem;
     height: 0.0625rem;
-    }
+    margin-bottom: 1.88rem;;
+}
 
 #item-detail{
     z-index : 2;
@@ -349,7 +365,11 @@ form{
 #img-view{
     width: 15.625rem;
     height: 15.625rem;
-    background: #FFF;
+    background: rgb(255, 255, 255);
+}
+
+#item-img{
+
 }
 
 
@@ -559,11 +579,13 @@ form{
     gap: 14.125rem;
 }
 
-hr{
-    margin-bottom: 1.85rem;
+#form-btn{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#save-btn{
+#submit-btn{
     width: 7.92856rem;
     height: 3rem; 
     border-radius: 1.875rem;
@@ -573,6 +595,19 @@ hr{
     text-align: center;
     font-size: 1.5rem;  
     font-weight: 600;
+    cursor: pointer;
+    display: none;
+}
+
+#edit-btn{
+    width: 7.92856rem;
+    height: 3rem;
+    border-radius: 1.875rem;
+    background: #FFF;
+    text-align: center;
+    font-size: 1.5rem;  
+    font-weight: 600;
+    color: #101010;
     cursor: pointer;
 }
 
