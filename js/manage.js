@@ -186,7 +186,7 @@ function renderDate(year, month, date) {
 }
 
 function makeCalendarDOM() {
-  const firstDay = 1;
+  const firstDay = new Date(calendarYear, calendarMonth-1, 1).getDay(); 
   const lastDay = new Date(calendarYear, calendarMonth, 0).getDate();
   const limitDay = firstDay + lastDay;
   const nextDay = Math.ceil(limitDay / 7) * 7;
@@ -225,9 +225,8 @@ function openModal(event) {
   modal.style.display = "block";
   document.body.style.overflow = "hidden";
 // api 호출 밑에 func에서 불러와버려 -> year , month -> []
-//  data();
+
   var calendarDate = Number.parseInt(event.target.classList[1]);
-  response_list.
 
   // filtering(년/월/일 -> 일자만 꺼내와) 후 showSalesInfoOnModal에 인자를 넘겨줘서 mockData 대체
   //data().data.orders.filter(order => )
@@ -255,7 +254,7 @@ function showSalesInfoOnModal(calendarDate) {
     }
   }
   document.getElementById('today-items').innerHTML = html;
-}
+  }
 
 function isOrderCreatedAt(order, year, month, date) {
   const orderDate = new Date(order.created_at);
@@ -269,8 +268,14 @@ function isOrderCreatedAt(order, year, month, date) {
  */
 
 
-document.querySelector(`.prevDay`).onclick = selectPrevMonth;
-document.querySelector(`.nextDay`).onclick = selectNextMonth;
+document.querySelector(`.prevDay`).onclick = () => { 
+  selectPrevMonth();
+  makeCalendarDOM();
+};
+document.querySelector(`.nextDay`).onclick = () => {
+  selectNextMonth();
+  makeCalendarDOM();
+};
 document.getElementById("close-btn").addEventListener("click", closeModal);
 $(document).on("click", ".add-btn", openModal);
 
@@ -278,23 +283,26 @@ $(document).on("click", ".add-btn", openModal);
 
 initCalendar();
 
-var response_list = [];
+var response_list ={};
 
 function data() {
-  fetch('http://172.17.104.142:8000/api/v1/order', {
+  fetch('http://127.0.0.1:8000/api/v1/order?status=3', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     }
   })
-  .then((response) => {
-    response_list = response;
+  .then(async (response) => {
     if (response.status === 401) {
       throw new Error('401 에러 발생: Unauthorized');
     } else if (response.status === 404) {
       throw new Error('404 에러 발생: Not Found');
     }
-    console.log('SUCCESS', response);
+    
+    response_list = await response.json();
+    console.log('SUCCESS', response, response_list);
   })
   .catch((error) => console.log('ERROR', error));
 }
+
+window.onload = () => data();
