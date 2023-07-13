@@ -2,6 +2,7 @@ const productContainer = document.getElementById('menu-container');
 const modalScreenCloseBtn = document.querySelector('.modal-close-button');
 const modalScreen = document.querySelector('.modal-screen');
 const categoryContainer = document.querySelector('.category-container ul');
+const totalQuantityIndicator = document.querySelector('.quantity-indicator p');
 
 const cartCookie = document.cookie;
 
@@ -108,25 +109,36 @@ function setConfirmButton() {
   for (const confirmButton of confirmButtons) {
     confirmButton.addEventListener('click', function() {
       const countIndicator = document.getElementById(`count${confirmButton.id}`);
-      const quantity = Number(countIndicator.textContent);
+      let quantity = Number(countIndicator.textContent);
+      const localStorageItems = { ...localStorage };
+
       if (quantity > 0) {
         productGetResponse.forEach(item => {
-          if (localStorage > 0) {
-            console.log(localStorage);
-          }
-
           if (item.id === Number(confirmButton.id)) {
-            const selectedProductId = item.id;
-            const selectedProductInfo =  {
-              name: item.name,
-              price: item.price,
-              quantity: quantity,
+            let selectedProductId = item.id;
+            let selectedProductInfo = {};
+            if (item.id in localStorageItems) {
+              quantity += JSON.parse(localStorageItems[item.id]).quantity;
+              selectedProductInfo =  {
+                id: item.id,
+                name: item.name,
+                price: item.price,
+                quantity: quantity,
+              }
+            } else {
+              selectedProductInfo =  {
+                id: item.id,
+                name: item.name,
+                price: item.price,
+                quantity: quantity,
+              }
             }
             localStorage.setItem(selectedProductId, JSON.stringify(selectedProductInfo));
           }
         });
       }
       countIndicator.textContent = 0;
+      totalQuantityIndicator.innerHTML = localStorage.length;
     });
   }
 }
@@ -171,7 +183,10 @@ const categoryGetResponse = [
 // 이벤트리스너 부착
 // Empty
 
+// 데이터 통신부
+
 
 // 페이지 렌더 시 실행부
 renderCategory(categoryGetResponse);
 renderProduct(1, productGetResponse);
+totalQuantityIndicator.innerHTML = localStorage.length;
