@@ -1,16 +1,18 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./styles/receipt.css" rel="stylesheet">
-  <link href="./styles/common.css" rel="stylesheet">
+  <link href="{% static '/css/mobile-styles/receipt.css' %}" rel="stylesheet">
+  <link href="{% static '/css/mobile-styles/common.css' %}" rel="stylesheet">
   <title>사자의 야심작 | 영수증</title>
 </head>
 <body>
   <header>
     <div class="main-logo">
-      <img src="./assets/main_logo.png">
+      <img src="{% static '/image/mobile-image/main_logo.png' %}">
     </div>
   </header>
 
@@ -44,13 +46,13 @@
 
   <!-- mobile main bottom button start -->
   <section>
-    <a class="main-bottom-button" href="">
+    <a class="main-bottom-button" href="/m/home">
       <div class="main-bottom-button-content-container">
         <p>처음으로</p>
       </div>
     </a>
   </section>
   <!-- mobile main bottom button end -->
-  <script src="./scripts/receipt.js"></script>
+  <script src="{% static '/js/mobile-js/receipt.js' %}"></script>
 </body>
 </html>

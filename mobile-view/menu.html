@@ -1,23 +1,25 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./styles/menu.css" rel="stylesheet">
-  <link href="./styles/common.css" rel="stylesheet">
-  <link href="./styles/mobile_main_nav.css" rel="stylesheet">
+  <link href="{% static '/css/mobile-styles/menu.css' %}" rel="stylesheet">
+  <link href="{% static '/css/mobile-styles/common.css' %}" rel="stylesheet">
+  <link href="{% static '/css/mobile-styles/mobile_main_nav.css' %}" rel="stylesheet">
   <title>사자의 야심작 | 메뉴</title>
 </head>
 <body>
   <!-- mobile main nav bar start -->
   <nav class="main-navbar">
     <div class="back-button-container">
-      <a class="back-button" href="">
-        <img src="./assets/left-arrow.png">
+      <a class="back-button" href="/m/home">
+        <img src="{% static '/image/mobile-image/left-arrow.png' %}">
       </a>
     </div>
     <div class="main-logo-container">
-      <img class="main-logo" src="./assets/main_logo.png">
+      <img class="main-logo" src="{% static '/image/mobile-image/main_logo.png' %}">
     </div>
     <div class="dummy-container"></div>
   </nav>
@@ -47,13 +49,13 @@
 
   <!-- mobile main bottom button start -->
   <section>
-    <a class="main-bottom-button" href="">
+    <a class="main-bottom-button" href="/m/cart">
       <div class="main-bottom-button-content-container">
         <div>
           <p>장바구니 보기</p>
         </div>
         <div class="cart-icon">
-          <img src="./assets/shopping_cart.png">
+          <img src="{% static '/image/mobile-image/shopping_cart.png' %}">
           <div class="quantity-indicator">
             <p>0</p>
           </div>
@@ -63,6 +65,6 @@
   </section>
   <!-- mobile main bottom button end -->
 
-  <script src="./scripts/menu.js"></script>
+  <script src="{% static '/js/mobile-js/menu.js' %}"></script>
 </body>
 </html>
