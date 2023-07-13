@@ -34,6 +34,7 @@ function onsubmitEmail() {
         console.log(status);
       }
   })
+  
 }
 //로그인하는 함수이다
 function onsubmitSignup(){

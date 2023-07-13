@@ -23,4 +23,5 @@ function onclickLogin(){
       window.location.replace('/manage')
     })
     .catch((error) => console.log('ERROR', error));
+    
 }
