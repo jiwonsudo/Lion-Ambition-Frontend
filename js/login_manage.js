@@ -1,3 +1,5 @@
+//쿠키를 받아온다
+
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -13,25 +15,19 @@ function getCookie(name) {
     return cookieValue;
 }
 
+
 function logOutPage() {
-    var email = $('#email').val();
-    console.log(email);
-    $.ajax({
-        type: 'POST',
-        url: 'http://127.0.0.1:8000/api/v1/email/validation',
-        contentType : 'application/json',
-        headers: {
-            'X-CSRFToken': getCookie('csrftoken')
-        },
-        data: JSON.stringify({
-          "email": email,
-          //백엔드에 보낸 데이터를 여기에 적어야 된다
-        }),
-        success : function(data){
-          console.log(data);
-        },
-        error: function(request, status, error){
-          console.log(status);
-        }
-    })
+  $.ajax({
+    type: 'GET',
+    url: 'http://127.0.0.1:8000/api/v1/logout',
+    contentType: 'application/json',
+    success: function(data) {
+        console.log(data);
+        window.location.href = '/login'
+    },
+    error: function(request, status, error) {
+        console.log(status);
+    }
+  });
+
 }

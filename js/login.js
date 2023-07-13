@@ -1,3 +1,5 @@
+//로그인하는 함수이다
+
 function onclickLogin(){
     fetch('http://127.0.0.1:8000/api/v1/login', {
       method: 'POST',
@@ -18,6 +20,7 @@ function onclickLogin(){
         throw new Error('429 에러 발생: Too Many Requests');
       }
       console.log('SUCCESS', response);
+      window.location.href='manage'
     })
     .catch((error) => console.log('ERROR', error));
 }

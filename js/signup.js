@@ -35,7 +35,7 @@ function onsubmitEmail() {
       }
   })
 }
-
+//로그인하는 함수이다
 function onsubmitSignup(){
   var email = $('#email').val();
   var password = $('#password').val();
@@ -56,6 +56,7 @@ function onsubmitSignup(){
         //백엔드에 보낸 데이터를 여기에 적어야 된다
       }),
       success : function(data){
+        window.location.href = '/login'
       },
       error: function(request, status, error){
       }
