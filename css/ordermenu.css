@@ -283,7 +283,7 @@
   
   #calendar-nav {
     width: 100%;
-    display: flex;
+    display: inline-flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
   
@@ -308,18 +308,20 @@
   }
 
   .calendar-image {
-    width: 1px;
-    height: 1px;
+
+    width: 30px;
+    height: 30px;
     overflow: hidden;
     position: relative;
+    justify-content: left;
+    margin-left: -4px;
+    margin-top: 2px;
+    /* cursor: pointer; */
+
   }
-  
-  .calendar > .calendar-image {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+   img {
+    max-width: 100%;
+    max-height: 100%;
   }
 
 
@@ -462,6 +464,19 @@
     color: #fff;
     margin-bottom: 1.87rem;
   }
+
+  .item-count {
+    text-align: left;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 40px;
+    line-height: 20px;
+    color: #fff;
+    margin-bottom: 1.87rem;
+  }
+  
   
   .item-price {
     text-align: left;
