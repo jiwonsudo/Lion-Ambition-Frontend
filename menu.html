@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사자의 야심작</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="./script/menu.js" defer></script>
-    <link rel="stylesheet" href="./styles/menu.css">
+    <script src="{% static 'js/menu.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
 </head>
 <body>
     <header>
         <h1 id="head-logo">
-            <a href="#"><img src="./assets/LionAmbitious.png"/></a>
+            <a href="#"><img src="{% static 'image/LionAmbitious.png' %}"/></a>
         </h1>
         <div class="me-bar">
             <p class="user-name">admin 님</p>
