@@ -21,6 +21,7 @@ function onclickLogin() {
         throw new Error('429 에러 발생: Too Many Requests');
       }
       console.log('SUCCESS', response);
+      alert("로그인이 완료되었습니다")
       window.location.replace('/manage')
     })
     .catch((error) => console.log('ERROR', error));
