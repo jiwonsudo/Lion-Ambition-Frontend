@@ -1,7 +1,5 @@
 {% load static %}
 
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>사자의 야심작</title>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="./orderview.js" defer></script>
-    <link rel="stylesheet" href="./orderview.css" />
+    <script src="{% static 'js/ordermenu.js'%}" defer></script>
+    <link rel="stylesheet" href="{% static 'css/ordermenu.css'%}" />
   </head>
   <body>
     <header>
       <h1 id="head-logo">
-        <a href="#"><img src="/Image/LionAmbitious.png" /></a>
+        <a href="#"><img src="{% static 'image/LionAmbitious.png' %}" /></a>
       </h1>
       <div class="profile-bar">
         <p class="user-name">admin 님</p>
@@ -41,9 +39,8 @@
       </div>
     </nav>
 
-
     <div id="contents">
-    <div id="calendar-nav">
+      <div id="calendar-nav">
         <!-- <p><input type="text" id="date"></p> -->
 
         <!-- <p><input type="text" id="year">년 <input type="text" id="month">월<input type="text" id="day">일</p> -->
@@ -58,58 +55,22 @@
           <li class="calendar-text">
             <input type="text" id="date" placeholder="선택" />
           </li>
-
         </ul>
-          <div class="calendar-image">
-            <a href="#"><img src="/Image/calendar.png" /></a>
-          </div>
-
+        <div class="calendar-image">
+          <a href="#"><img src="{% static 'image/calendar.png' %}" /></a>
+        </div>
       </div>
 
-<!--접수완료 주문 부분  -->
+      <!--접수완료 주문 부분  -->
       <div id="container">
-        <div class="ordermenu-board">
-          접수 완료된 주문
-          <div class="ordermenu-list">
-            <input type="button" class="ordernumber-btn" value="15" />
-            <ul class="order-list">
-              <li id="order-item">주문내역: 야심작 버거 외 3개</li>
-              <li id="order-item">금액: 32,000원</li>
-            </ul>
-            <li class="orderstatus">
-              <input type="button"  class="cooked-btn" value=" 조리 완료 " onclick="moveTest()"/>
-            </li>
-          </div>
+        <div class="ordermenu-board">접수 완료된 주문</div>
 
-          <div class="ordermenu-list">
-            <input type="button" class="ordernumber-btn" value="11" />
-            <ul class="order-list">
-              <li id="order-item">주문내역: 야심작 버거 외 3개</li>
-              <li id="order-item">금액: 32,000원</li>
-            </ul>
-            <li class="orderstatus">
-              <input type="button" class="cooked-btn" value=" 조리 완료 " />
-            </li>
-          </div>
-        </div>
-        
-<!-- 조리완료 주문 부분 -->
-        <div class="cookingfinish-board">
-          조리 완료된 주문
-          <div class="cookingfinish-list">
-            <input type="button" class="ordernumber-btn" value="10" />
-            <ul class="order-list">
-              <li id="order-item">주문내역: 야심작 버거 외 3개</li>
-              <li id="order-item">금액: 32,000원</li>
-            </ul>
-          </div>
-
-
-        </div>
+        <!-- 조리완료 주문 부분 -->
+        <div class="cookingfinish-board">조리 완료된 주문</div>
       </div>
     </div>
 
-<!-- 모달창 부분 -->
+    <!-- 모달창 부분 -->
     <div id="modal-wrap">
       <div id="modal-body">
         <div id="modal-content">
@@ -131,23 +92,16 @@
           </span>
           <div id="item-detail">
             <p id="modal-title">주문 상세</p>
-            <p id="modal-ordernum">주문 번호: 15</p>
+            <p id="modal-ordernum"></p>
             <p id="modal-orderdate">주문 날짜: 23-06-27 01:23, 화요일</p>
 
             <hr />
             <form method="post" enctype="multipart/form-data">
               <div class="form-text">
-                <div class="detail-menu">
-                  <li class="item-menu">야심작버거 x 1</li>
-                  <li class="item-menu">골든 프렌치 프라이 x 2</li>
-                  <li class="item-menu">불멸의 에너지 x 3</li>
-                </div>
+                <div class="detail-menu"></div>
 
-                <div class="detail-price">
-                  <li class="item-price">8,000</li>
-                  <li class="item-price">10,000</li>
-                  <li class="item-price">12,000</li>
-                </div>
+                <div class="detail-price"></div>
+
                 <br />
               </div>
             </form>
@@ -211,22 +165,6 @@
           },
         });
       });
-        var tmp = 1;
-
-        function moveTest() {
-            console.log('TEST');
-            var div = document.querySelector("#ordermenu-list").children[0];
-            cookingfinish-list = document.querySelector("#cookingfinish-list");
-            cookingfinish-list.appendChild(div);
-        }
-
-        let ordermenu-list = document.queryselector('ordermenu-list');
-        ordermenu-list.appendChild(cookingfinish-list);
     </script>
-
-
-
   </body>
 </html>
-
-{% endblock %} 
