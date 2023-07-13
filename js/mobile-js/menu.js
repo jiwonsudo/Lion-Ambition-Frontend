@@ -24,7 +24,7 @@ function renderProductToDOM(itemData) {
     <div class="menu" id="${itemData.id}">
       <div class="menu-image-container">
         <button class="menu-detail-button">
-          <img src="./assets/test_image_1.png">
+          <img src="${itemData.image_url}">
         </button>
       </div>
       <div class="menu-info">
@@ -46,7 +46,7 @@ function renderProductToDOM(itemData) {
 }
 
 function renderCategory(categoryGetResponse) {
-  const filteredCategories = categoryGetResponse[0].categories
+  const filteredCategories = categoryGetResponse.categories
   .map(renderCategoryToDOM)
   .join('');
   categoryContainer.innerHTML = filteredCategories;
@@ -55,7 +55,7 @@ function renderCategory(categoryGetResponse) {
 function renderCategoryToDOM(categoryData) {
   return `
     <li>
-      <a href="javascript: renderProduct(${categoryData.id}, productGetResponse);">
+      <a href="javascript: getProduct(${categoryData.id});">
         ${categoryData.name}
       </a>
     </li>
@@ -124,6 +124,7 @@ function setConfirmButton() {
                 name: item.name,
                 price: item.price,
                 quantity: quantity,
+                image_url: item.image_url,
               }
             } else {
               selectedProductInfo =  {
@@ -131,6 +132,7 @@ function setConfirmButton() {
                 name: item.name,
                 price: item.price,
                 quantity: quantity,
+                image_url: item.image_url,
               }
             }
             localStorage.setItem(selectedProductId, JSON.stringify(selectedProductInfo));
@@ -143,50 +145,34 @@ function setConfirmButton() {
   }
 }
 
-// 테스트 데이터
-
-const productGetResponse = [
-  {
-    "id": 1,
-    "category": {
-      "id": 1,
-      "name": "햄버거"
-    },
-    "name": "야심작 버거",
-    "image_url": "https://.../image.jpg",
-    "price": 8000,
-    "is_soldout": true
-  },
-  {
-    "id": 99,
-    "category": {
-      "id": 3,
-      "name": "음료"
-    },
-    "name": "불멸의 에너지",
-    "image_url": "https://drive.google.com/.../1021b3a4.jpg",
-    "price": 12000,
-    "is_soldout": false
-  },
-]
-
-const categoryGetResponse = [
-  {
-    "categories": [
-      { "id": 1, "name": "버거" },
-      { "id": 2, "name": "사이드" },
-      { "id": 3, "name": "음료" }
-    ]
-  }
-]
-
-// 이벤트리스너 부착
-// Empty
-
 // 데이터 통신부
+function getCategory() {
+  fetch('http://127.0.0.1:8000/api/v1/category', {
+    method: 'GET',
+  })
+  .then(async response => {
+    const res = await response.json()
+    categoryGetResponse = res.data;
+    console.log(categoryGetResponse);
+    renderCategory(categoryGetResponse);
+  })
+  .catch(error => console.error('Error:', error))
+}
 
+function getProduct(categoryID) {
+  fetch('http://127.0.0.1:8000/api/v1/product', {
+    method: 'GET',
+  })
+  .then(async response => {
+    const res = await response.json()
+    productGetResponse = res.data.products;
+    console.log(productGetResponse);
+    renderProduct(categoryID, productGetResponse);
+  })
+  .catch(error => console.error('Error:', error))
+}
 
 // 페이지 렌더 시 실행부
-renderCategory(categoryGetResponse);
-renderProduct(1, productGetResponse);
+getCategory();
+getProduct(1);
 totalQuantityIndicator.innerHTML = localStorage.length;

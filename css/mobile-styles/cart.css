@@ -23,6 +23,7 @@
 
 .menu-container {
   width: 100%;
+  padding-bottom: 70px;
 }
 
 .menu {
@@ -37,6 +38,7 @@
 
 .menu-image-container {
   height: 80%;
+  width: 100px;
   margin-left: 5vw;
 }
 
@@ -46,12 +48,10 @@
   background-color: transparent;
 }
 
-.menu-detail-button:hover {
-  cursor: pointer;
-}
-
 .menu-detail-button img {
   height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .menu-info {
