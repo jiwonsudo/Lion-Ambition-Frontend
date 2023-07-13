@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사자의 야심작</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="./script/menu.js" defer></script>
-    <link rel="stylesheet" href="./styles/menu.css">
+    <script src="{% static 'js/menu.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
 </head>
 <body>
     <header>
         <h1 id="head-logo">
-            <a href="#"><img src="./assets/LionAmbitious.png"/></a>
+            <a href="#"><img src="{% static 'image/LionAmbitious.png' %}"/></a>
         </h1>
         <div class="me-bar">
             <p class="user-name">admin 님</p>
@@ -78,7 +79,7 @@
                 <div id="item-detail">
                     <p id="modal-title">상품 상세</p>
                     <hr />
-                    <form method="post" enctype="multipart/form-data">
+                    <form>
                         <div id="form-img">
                             <div id="img-view">
                                 <img class="item-img">
@@ -110,11 +111,13 @@
                                 <div id="item-group">
                                     <span id="input-title">상품그룹</span>
                                       <div class="dropdown">
-                                        <button class="dropbtn" onmouseover="dropdown()">
-                                          <span class="dropbtn_content">상품그룹 선택</span>
-                                          <span class="dropbtn_click" style="font-family: Material Icons; color : #3b3b3b; float:right;"
-                                          >arrow_drop_down</span>
-                                        </button>
+                                        <input type="text" class="dropbtn" name="pd_category"value="상품그룹 선택" onclick="dropdown()">
+                                        <div id="select-text">
+                                            <!--<span class="card-category">상품그룹 선택</span>-->
+                                            <!--<span class="dropbtn_click" style="font-family: Material Icons; color : #3b3b3b; float:right;"
+                                            >arrow_drop_down</span>-->
+                                        </div>
+                                        </input>
                                         <div class="dropdown-content">
                                           <div class="menu-list" onclick="showMenu(this.innerText)">버거</div>
                                           <div class="menu-list" onclick="showMenu(this.innerText)">사이드</div>
@@ -154,10 +157,6 @@
                         id="edit-btn"
                         value="수정"
                         >
-                       <input type="submit"
-                        id="submit-btn"
-                        value="저장"
-                        onclick="changeEdit()">
                     </div>
                 </div>
               </div>
@@ -187,7 +186,7 @@ data = {
           name: "음료",
         },
         name: "불멸의 에너지",
-        image_url: "https://drive.google.com/.../1021b3a4.jpg",
+        image_url: "https://images.unsplash.com/photo-1581927692308-be9e43b4d860?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
         price: 12000,
         is_soldout: false,
       },
@@ -220,7 +219,6 @@ function renderHTML(data) {
         productContainer.appendChild(productDiv);
       }
     }
-
     // 렌더링 실행
     renderHTML(data);
 </script>
