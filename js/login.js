@@ -7,8 +7,8 @@ function onclickLogin(){
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: 'admin@likelion.org',
-        password: '0000',
+        email: $('#email').val(),
+        password: $('#password').val(),
       }),
     })
     .then((response) => {
@@ -20,7 +20,8 @@ function onclickLogin(){
         throw new Error('429 에러 발생: Too Many Requests');
       }
       console.log('SUCCESS', response);
-      window.location.href='manage'
+      window.location.replace('/manage')
     })
     .catch((error) => console.log('ERROR', error));
+    
 }

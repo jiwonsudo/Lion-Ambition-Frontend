@@ -34,6 +34,7 @@ function onsubmitEmail() {
         console.log(status);
       }
   })
+  
 }
 //로그인하는 함수이다
 function onsubmitSignup(){
@@ -56,7 +57,7 @@ function onsubmitSignup(){
         //백엔드에 보낸 데이터를 여기에 적어야 된다
       }),
       success : function(data){
-        window.location.href = '/login'
+        window.location.replace('/login')
       },
       error: function(request, status, error){
       }
