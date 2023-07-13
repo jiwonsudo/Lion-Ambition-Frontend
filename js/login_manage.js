@@ -23,10 +23,11 @@ function logOutPage() {
     contentType: 'application/json',
     success: function(data) {
         console.log(data);
-        window.location.href = '/login'
+        window.location.replace('/login')
     },
     error: function(request, status, error) {
         console.log(status);
+        window.location.replace('/login')
     }
   });
 
